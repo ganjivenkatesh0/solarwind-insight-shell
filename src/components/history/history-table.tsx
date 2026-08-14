@@ -57,7 +57,7 @@ export function AnalysisHistoryTable({
                 </th>
               ),
             )}
-            <th className="text-label px-2.5 py-3 text-right font-semibold whitespace-nowrap">Actions</th>
+            <th className="text-label sticky right-0 bg-muted/60 px-2.5 py-3 text-right font-semibold whitespace-nowrap">Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -97,7 +97,13 @@ export function AnalysisHistoryTable({
                 <td className="px-2 py-2.5">
                   <AnalysisStatusBadge status={record.status} />
                 </td>
-                <td className="px-2.5 py-2.5" onClick={(e) => e.stopPropagation()}>
+                <td
+                  className={cn(
+                    "sticky right-0 px-2.5 py-2.5",
+                    isSelected ? "bg-primary-soft" : "bg-card",
+                  )}
+                  onClick={(e) => e.stopPropagation()}
+                >
                   <div className="flex items-center justify-end gap-1">
                     <IconAction label={`View ${record.id}`} onClick={() => onView(record)}>
                       <ViewIcon className="size-4" />
