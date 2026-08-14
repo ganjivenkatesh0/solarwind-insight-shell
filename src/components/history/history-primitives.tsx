@@ -29,13 +29,13 @@ const summaryTone: Record<AnalysisHistorySummary["tone"], string> = {
 export function HistorySummaryCard({ card }: { card: AnalysisHistorySummary }) {
   const Icon = summaryIcons[card.icon];
   return (
-    <div className="surface-card flex min-w-0 items-center gap-3 px-4 py-4 transition-shadow hover:shadow-[var(--shadow-elevated)]">
-      <span className={cn("grid size-10 shrink-0 place-items-center rounded-xl", summaryTone[card.tone])}>
-        <Icon className="size-5" strokeWidth={1.75} />
+    <div className="surface-card flex min-w-0 items-center gap-2.5 px-3.5 py-3.5 transition-shadow hover:shadow-[var(--shadow-elevated)]">
+      <span className={cn("grid size-9 shrink-0 place-items-center rounded-xl", summaryTone[card.tone])}>
+        <Icon className="size-4.5" strokeWidth={1.75} />
       </span>
       <div className="min-w-0">
         <p className="text-helper truncate">{card.label}</p>
-        <p className="truncate text-[1.5rem] leading-8 font-bold tracking-tight">
+        <p className="truncate text-[1.375rem] leading-7 font-bold tracking-tight">
           {card.value}
           {card.suffix ? (
             <span className="text-helper ml-1 align-middle font-medium">{card.suffix}</span>

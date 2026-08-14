@@ -40,19 +40,19 @@ export function AnalysisHistoryTable({
 
   return (
     <div className="min-w-0 overflow-x-auto">
-      <table className="w-full min-w-[780px] border-collapse text-left">
+      <table className="w-full min-w-[700px] border-collapse text-left">
         <thead>
           <tr className="bg-muted/60">
-            <th className="w-10 px-4 py-3">
+            <th className="w-9 px-3 py-3">
               <Checkbox
                 checked={allChecked}
                 onCheckedChange={(v) => onToggleAll(v === true)}
                 aria-label="Select all analyses"
               />
             </th>
-            {["Analysis ID", "Location", "Date & Time", "Suitability Score", "Recommended", "Status"].map(
+            {["Analysis ID", "Location", "Date & Time", "Suitability", "Recommended", "Status"].map(
               (label) => (
-                <th key={label} className="text-label px-3 py-3 font-semibold whitespace-nowrap">
+                <th key={label} className="text-label px-2.5 py-3 font-semibold whitespace-nowrap">
                   {label}
                 </th>
               ),
@@ -72,29 +72,29 @@ export function AnalysisHistoryTable({
                   isSelected && "bg-primary-soft/50",
                 )}
               >
-                <td className="px-4 py-3" onClick={(e) => e.stopPropagation()}>
+                <td className="px-3 py-3" onClick={(e) => e.stopPropagation()}>
                   <Checkbox
                     checked={checkedIds.includes(record.id)}
                     onCheckedChange={() => onToggleCheck(record.id)}
                     aria-label={`Select ${record.id}`}
                   />
                 </td>
-                <td className="text-label px-3 py-3 whitespace-nowrap">{record.id}</td>
-                <td className="px-3 py-3">
+                <td className="text-label px-2.5 py-3 whitespace-nowrap">{record.id}</td>
+                <td className="px-2.5 py-3">
                   <p className="text-label truncate font-semibold">{record.location}</p>
                   <p className="text-wind truncate text-[11px]">{record.coordinatesLabel}</p>
                 </td>
-                <td className="px-3 py-3 whitespace-nowrap">
+                <td className="px-2.5 py-3 whitespace-nowrap">
                   <p className="text-label">{record.dateLabel}</p>
                   <p className="text-helper">{record.timeLabel}</p>
                 </td>
-                <td className="px-3 py-3">
+                <td className="px-2.5 py-3">
                   <ScoreDial score={record.score} />
                 </td>
-                <td className="px-3 py-3">
+                <td className="px-2.5 py-3">
                   <TechnologyCell technology={record.technology} capacityLabel={record.capacityLabel} />
                 </td>
-                <td className="px-3 py-3">
+                <td className="px-2.5 py-3">
                   <AnalysisStatusBadge status={record.status} />
                 </td>
                 <td className="px-4 py-3" onClick={(e) => e.stopPropagation()}>
