@@ -32,7 +32,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
 import {
   analysisFocusOptions,
@@ -161,20 +160,13 @@ function PreferencesPage() {
             <Label htmlFor={`factor-${item.key}`} className="text-helper text-foreground">
               {item.label}
             </Label>
-            <TooltipProvider>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <button
-                  type="button"
-                  aria-label={`${item.label} info`}
-                  className="text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  <Info className="size-3.5" />
-                </button>
-              </TooltipTrigger>
-              <TooltipContent>{item.hint}</TooltipContent>
-            </Tooltip>
-            </TooltipProvider>
+            <span
+              title={item.hint}
+              aria-label={`${item.label}: ${item.hint}`}
+              className="text-muted-foreground"
+            >
+              <Info className="size-3.5" />
+            </span>
           </div>
           <Slider
             id={`factor-${item.key}`}
