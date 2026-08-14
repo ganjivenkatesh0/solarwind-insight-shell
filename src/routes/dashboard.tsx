@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 import { toast } from "sonner";
 
@@ -18,8 +18,10 @@ import {
   SuitabilityCard,
   TechnologyCard,
 } from "@/components/dashboard/highlight-cards";
+import { RecommendationTab } from "@/components/dashboard/recommendation/recommendation-tab";
 import { ResourceAssessment } from "@/components/dashboard/resource-assessment";
 import { ResourcesTab } from "@/components/dashboard/resources/resources-tab";
+
 import { SiteLocationCard } from "@/components/dashboard/site-location-card";
 import { SummaryCards } from "@/components/dashboard/summary-cards";
 import { EmptyState } from "@/components/ui/states";
@@ -48,6 +50,7 @@ export const Route = createFileRoute("/dashboard")({
 });
 
 function DashboardPage() {
+  const navigate = useNavigate();
   const [tab, setTab] = useState<DashboardTabId>("overview");
   const data = dashboardData;
 
@@ -124,7 +127,18 @@ function DashboardPage() {
               onViewSimilar={notReady("Similar project")}
               onViewReport={notReady("Detailed AI report")}
             />
+          ) : tab === "recommendation" ? (
+            <RecommendationTab
+              onExport={notReady("Recommendation report export")}
+              onDownload={() =>
+                toast.success("Report export will be available once the analysis API is connected.")
+              }
+              onCompareOptions={() => navigate({ to: "/compare-sites" })}
+              onViewRiskAnalysis={() => setTab("feasibility")}
+              onProceed={() => navigate({ to: "/new-analysis/project-parameters" })}
+            />
           ) : (
+
             <EmptyState
               title="Section coming next"
               description="This tab will show the detailed breakdown for the selected analysis area."
