@@ -364,8 +364,8 @@ export function RecommendationTab({
       </div>
 
       {/* Overall recommendation bar */}
-      <section className="surface-card border-primary/25 bg-primary-soft/50 flex flex-col gap-4 p-4 xl:flex-row xl:items-center xl:justify-between">
-        <div className="flex min-w-0 flex-1 items-start gap-3 xl:basis-[360px]">
+      <section className="surface-card border-primary/25 bg-primary-soft/50 flex flex-col gap-4 p-4">
+        <div className="flex min-w-0 items-start gap-3">
           <span className="bg-primary/15 text-primary grid size-10 shrink-0 place-items-center rounded-full">
             <Gauge className="size-5" />
           </span>
@@ -375,7 +375,8 @@ export function RecommendationTab({
           </div>
         </div>
 
-        <div className="grid gap-4 sm:grid-cols-3 xl:shrink-0">
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <div className="grid gap-4 sm:grid-cols-3 sm:flex-1">
           {data.overall.indicators.map((ind) => {
             const Icon = overallIcon[ind.id];
             return (
@@ -390,10 +391,11 @@ export function RecommendationTab({
           })}
         </div>
 
-        <Button className="gap-2 whitespace-nowrap xl:shrink-0" onClick={onProceed}>
+        <Button className="gap-2 whitespace-nowrap sm:shrink-0" onClick={onProceed}>
           {data.overall.cta}
           <ArrowRight className="size-4" />
         </Button>
+        </div>
       </section>
     </div>
   );
