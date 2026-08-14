@@ -18,6 +18,7 @@ import { Route as MapExplorerRouteImport } from './routes/map-explorer'
 import { Route as NewAnalysisRouteImport } from './routes/new-analysis'
 import { Route as ReportsRouteImport } from './routes/reports'
 import { Route as SettingsRouteImport } from './routes/settings'
+import { Route as NewAnalysisPreferencesRouteImport } from './routes/new-analysis_.preferences'
 import { Route as NewAnalysisProjectParametersRouteImport } from './routes/new-analysis_.project-parameters'
 
 const IndexRoute = IndexRouteImport.update({
@@ -65,6 +66,11 @@ const SettingsRoute = SettingsRouteImport.update({
   path: '/settings',
   getParentRoute: () => rootRouteImport,
 } as any)
+const NewAnalysisPreferencesRoute = NewAnalysisPreferencesRouteImport.update({
+  id: '/new-analysis_/preferences',
+  path: '/new-analysis/preferences',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const NewAnalysisProjectParametersRoute =
   NewAnalysisProjectParametersRouteImport.update({
     id: '/new-analysis_/project-parameters',
@@ -82,6 +88,7 @@ export interface FileRoutesByFullPath {
   '/new-analysis': typeof NewAnalysisRoute
   '/reports': typeof ReportsRoute
   '/settings': typeof SettingsRoute
+  '/new-analysis/preferences': typeof NewAnalysisPreferencesRoute
   '/new-analysis/project-parameters': typeof NewAnalysisProjectParametersRoute
 }
 export interface FileRoutesByTo {
@@ -94,6 +101,7 @@ export interface FileRoutesByTo {
   '/new-analysis': typeof NewAnalysisRoute
   '/reports': typeof ReportsRoute
   '/settings': typeof SettingsRoute
+  '/new-analysis/preferences': typeof NewAnalysisPreferencesRoute
   '/new-analysis/project-parameters': typeof NewAnalysisProjectParametersRoute
 }
 export interface FileRoutesById {
@@ -107,6 +115,7 @@ export interface FileRoutesById {
   '/new-analysis': typeof NewAnalysisRoute
   '/reports': typeof ReportsRoute
   '/settings': typeof SettingsRoute
+  '/new-analysis_/preferences': typeof NewAnalysisPreferencesRoute
   '/new-analysis_/project-parameters': typeof NewAnalysisProjectParametersRoute
 }
 export interface FileRouteTypes {
@@ -121,6 +130,7 @@ export interface FileRouteTypes {
     | '/new-analysis'
     | '/reports'
     | '/settings'
+    | '/new-analysis/preferences'
     | '/new-analysis/project-parameters'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -133,6 +143,7 @@ export interface FileRouteTypes {
     | '/new-analysis'
     | '/reports'
     | '/settings'
+    | '/new-analysis/preferences'
     | '/new-analysis/project-parameters'
   id:
     | '__root__'
@@ -145,6 +156,7 @@ export interface FileRouteTypes {
     | '/new-analysis'
     | '/reports'
     | '/settings'
+    | '/new-analysis_/preferences'
     | '/new-analysis_/project-parameters'
   fileRoutesById: FileRoutesById
 }
@@ -158,6 +170,7 @@ export interface RootRouteChildren {
   NewAnalysisRoute: typeof NewAnalysisRoute
   ReportsRoute: typeof ReportsRoute
   SettingsRoute: typeof SettingsRoute
+  NewAnalysisPreferencesRoute: typeof NewAnalysisPreferencesRoute
   NewAnalysisProjectParametersRoute: typeof NewAnalysisProjectParametersRoute
 }
 
@@ -226,6 +239,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SettingsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/new-analysis_/preferences': {
+      id: '/new-analysis_/preferences'
+      path: '/new-analysis/preferences'
+      fullPath: '/new-analysis/preferences'
+      preLoaderRoute: typeof NewAnalysisPreferencesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/new-analysis_/project-parameters': {
       id: '/new-analysis_/project-parameters'
       path: '/new-analysis/project-parameters'
@@ -246,6 +266,7 @@ const rootRouteChildren: RootRouteChildren = {
   NewAnalysisRoute: NewAnalysisRoute,
   ReportsRoute: ReportsRoute,
   SettingsRoute: SettingsRoute,
+  NewAnalysisPreferencesRoute: NewAnalysisPreferencesRoute,
   NewAnalysisProjectParametersRoute: NewAnalysisProjectParametersRoute,
 }
 export const routeTree = rootRouteImport

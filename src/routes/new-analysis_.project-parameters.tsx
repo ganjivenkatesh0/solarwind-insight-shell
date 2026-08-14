@@ -16,7 +16,6 @@ import {
   Sun,
   Zap,
 } from "lucide-react";
-import { toast } from "sonner";
 
 import { PageContainer, PageHeader } from "@/components/layout/page-container";
 import { ParametersSidebar } from "@/components/analysis/parameters-sidebar";
@@ -377,10 +376,11 @@ function ProjectParametersPage() {
               <ArrowLeft className="size-4" />
               Back: Site Details
             </Button>
-            <Button onClick={() => toast.info("Step 3 — Preferences is coming in the next release.")}>
+            <Button onClick={() => navigate({ to: "/new-analysis/preferences" })}>
               Next: Preferences
               <ArrowRight className="size-4" />
             </Button>
+
           </div>
         </div>
 
