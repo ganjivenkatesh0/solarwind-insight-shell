@@ -7,7 +7,9 @@ import { SidebarAboutCard } from "./sidebar-about-card";
 
 export function AppSidebar({ onNavigate }: { onNavigate?: () => void }) {
   const router = useRouter();
-  const isReports = router.state.location.pathname === "/reports";
+  const pathname = router.state.location.pathname;
+  const isReports = pathname === "/reports";
+  const isSettings = pathname === "/settings";
 
   return (
     <div className="flex h-full flex-col bg-sidebar">
@@ -49,6 +51,11 @@ export function AppSidebar({ onNavigate }: { onNavigate?: () => void }) {
           <SidebarAboutCard
             title="About Reports"
             description="Generate comprehensive reports with insights, visualizations and recommendations for your renewable energy projects."
+          />
+        ) : isSettings ? (
+          <SidebarAboutCard
+            title="About Settings"
+            description="Manage your account, preferences, data sources, notifications and application configuration."
           />
         ) : (
           <SidebarAboutCard />
