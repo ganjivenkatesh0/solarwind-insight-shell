@@ -117,7 +117,7 @@ export function FeasibilityTab({
               return (
                 <li key={row.label} className="flex items-center gap-2">
                   <Icon className="text-success size-4 shrink-0" />
-                  <span className="text-label w-[38%] min-w-0 truncate font-normal">
+                  <span className="text-label w-[40%] min-w-0 leading-snug font-normal">
                     {row.label}
                   </span>
                   <span className="bg-muted h-2 min-w-0 flex-1 overflow-hidden rounded-full">
