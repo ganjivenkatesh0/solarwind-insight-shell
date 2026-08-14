@@ -13,7 +13,6 @@ import {
   Sun,
   Trophy,
   TriangleAlert,
-  Zap,
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -399,5 +398,3 @@ export function RecommendationTab({
     </div>
   );
 }
-
-export const recommendationTabIcons = { Zap };
