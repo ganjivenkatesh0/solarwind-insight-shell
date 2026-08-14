@@ -162,8 +162,8 @@ export function FeasibilityTab({
                 <li key={row.label} className="flex items-center gap-3 py-2.5">
                   <Icon className="text-info size-4 shrink-0" />
                   <div className="min-w-0 flex-1">
-                    <p className="text-label truncate">{row.label}</p>
-                    <p className="text-helper truncate">{row.description}</p>
+                    <p className="text-label leading-snug">{row.label}</p>
+                    <p className="text-helper leading-snug">{row.description}</p>
                   </div>
                   <span
                     className={cn(
