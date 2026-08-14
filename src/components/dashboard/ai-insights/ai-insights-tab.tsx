@@ -341,8 +341,8 @@ export function AiInsightsTab({
                     <th className="text-helper pb-2 font-medium">Model</th>
                     <th className="text-helper pb-2 font-medium">Type</th>
                     <th className="text-helper pb-2 pl-2 text-right font-medium">Weight</th>
-                    <th className="text-helper pb-2 pl-2 text-right font-medium">Accuracy</th>
-                    <th className="text-helper pb-2 pl-2 text-right font-medium">Pred.</th>
+                    <th className="text-helper pb-2 pl-1 text-right font-medium">Accuracy</th>
+                    <th className="text-helper pb-2 text-right font-medium">Pred.</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -351,7 +351,7 @@ export function AiInsightsTab({
                       <td className="py-2.5 pr-2 text-xs leading-snug font-semibold">{row.model}</td>
                       <td className="text-helper py-2.5 pr-2">{row.type}</td>
                       <td className="py-2.5 pl-2 text-right text-xs">{row.weight}</td>
-                      <td className="py-2.5 pl-2 text-right text-xs font-semibold">{row.accuracy}</td>
+                      <td className="py-2.5 pl-1 text-right text-xs font-semibold">{row.accuracy}</td>
                       <td className="py-2.5 text-right">
                         {row.trend === "up" ? (
                           <TrendingUp className="text-success ml-auto size-4" />
