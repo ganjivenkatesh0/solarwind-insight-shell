@@ -8,6 +8,7 @@ import {
   infrastructureLines,
   mapSites,
   protectedAreas,
+  selectedSite,
   suitabilityColor,
   waterBodies,
   windPoints,
