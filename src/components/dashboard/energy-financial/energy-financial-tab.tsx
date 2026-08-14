@@ -327,7 +327,7 @@ export function EnergyFinancialTab({
       {/* Row 2 */}
       <div className="grid gap-4 xl:grid-cols-3">
         <FeasibilityPanel title="Cost Breakdown" subtitle="Total project cost distribution">
-          <div className="grid items-center gap-4 sm:grid-cols-2">
+          <div className="grid items-center gap-3 sm:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
             <CostDonut slices={data.cost.slices} total={data.cost.total} />
             <ul className="min-w-0 space-y-2.5">
               {data.cost.slices.map((slice) => (
@@ -336,11 +336,11 @@ export function EnergyFinancialTab({
                     className="size-2.5 shrink-0 rounded-full"
                     style={{ backgroundColor: slice.color }}
                   />
-                  <span className="text-label min-w-0 flex-1 leading-snug font-normal">
+                  <span className="text-label min-w-0 flex-1 text-xs leading-snug font-normal">
                     {slice.label}
                   </span>
                   <span className="text-label shrink-0 text-xs font-semibold">{slice.amount}</span>
-                  <span className="text-helper w-12 shrink-0 text-right">
+                  <span className="text-helper w-11 shrink-0 text-right">
                     ({slice.share.toFixed(1)}%)
                   </span>
                 </li>
@@ -380,7 +380,7 @@ export function EnergyFinancialTab({
 
         <FeasibilityPanel title="Scenario Analysis" subtitle="Sensitivity analysis on key variables">
           <div className="min-w-0 overflow-x-auto">
-            <table className="w-full min-w-[420px] border-collapse text-left">
+            <table className="w-full min-w-[360px] border-collapse text-left">
               <thead>
                 <tr className="border-border border-b">
                   <th className="text-helper py-2 pr-2 font-semibold">Scenario</th>
