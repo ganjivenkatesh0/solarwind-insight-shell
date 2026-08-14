@@ -14,7 +14,6 @@ import {
   Plug,
   Settings2,
   Sun,
-  Utility,
   Zap,
 } from "lucide-react";
 import { toast } from "sonner";
