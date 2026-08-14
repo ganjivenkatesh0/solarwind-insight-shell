@@ -233,7 +233,7 @@ export function RecommendationTab({
           <div className="space-y-4">
             {data.alternatives.map((alt) => (
               <div key={alt.id} className="border-border bg-card/60 rounded-2xl border p-4">
-                <div className="flex min-w-0 flex-wrap items-start gap-3 sm:flex-nowrap">
+                <div className="grid grid-cols-1 gap-3 sm:grid-cols-[auto_1fr_auto] sm:items-start">
                   <img
                     src={altImage[alt.id]}
                     alt={alt.name}
@@ -242,7 +242,7 @@ export function RecommendationTab({
                     height={512}
                     className="h-[76px] w-[96px] shrink-0 rounded-xl object-cover"
                   />
-                  <div className="min-w-0 flex-1">
+                  <div className="min-w-0">
                     <div className="flex flex-wrap items-center gap-2">
                       <h4 className="text-label text-[15px] font-bold">{alt.name}</h4>
                       <StatusBadge tone={alt.badgeTone}>{alt.badge}</StatusBadge>
@@ -250,14 +250,14 @@ export function RecommendationTab({
                     <p className="text-helper mt-0.5 leading-snug">{alt.description}</p>
                     <dl className="mt-3 grid grid-cols-2 gap-x-4 gap-y-3">
                       {alt.metrics.map((m) => (
-                        <div key={m.label} className="flex min-w-0 flex-col gap-0.5">
+                        <div key={m.label} className="flex min-w-0 flex-col gap-0.5 overflow-hidden">
                           <dt className="text-helper leading-snug">{m.label}</dt>
                           <dd className="text-label font-semibold">{m.value}</dd>
                         </div>
                       ))}
                     </dl>
                   </div>
-                  <div className="flex shrink-0 flex-col items-center justify-center gap-1 self-center">
+                  <div className="flex shrink-0 flex-col items-center justify-center gap-1 sm:self-center">
                     <MiniScoreRing
                       value={alt.score}
                       max={alt.scoreOutOf}
