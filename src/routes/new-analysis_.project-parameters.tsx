@@ -16,7 +16,6 @@ import {
   Sun,
   Zap,
 } from "lucide-react";
-import { toast } from "sonner";
 
 import { PageContainer, PageHeader } from "@/components/layout/page-container";
 import { ParametersSidebar } from "@/components/analysis/parameters-sidebar";
