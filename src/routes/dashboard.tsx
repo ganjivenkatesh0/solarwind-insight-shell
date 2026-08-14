@@ -138,11 +138,7 @@ function DashboardPage() {
               onProceed={() => navigate({ to: "/new-analysis/project-parameters" })}
             />
           ) : (
-
-            <EmptyState
-              title="Section coming next"
-              description="This tab will show the detailed breakdown for the selected analysis area."
-            />
+            <MapPreviewTab />
           )}
         </DashboardTabs>
       </div>
