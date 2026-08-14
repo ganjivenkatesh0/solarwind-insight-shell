@@ -18,13 +18,13 @@ import {
   SuitabilityCard,
   TechnologyCard,
 } from "@/components/dashboard/highlight-cards";
+import { MapPreviewTab } from "@/components/dashboard/map/map-preview-tab";
 import { RecommendationTab } from "@/components/dashboard/recommendation/recommendation-tab";
 import { ResourceAssessment } from "@/components/dashboard/resource-assessment";
 import { ResourcesTab } from "@/components/dashboard/resources/resources-tab";
 
 import { SiteLocationCard } from "@/components/dashboard/site-location-card";
 import { SummaryCards } from "@/components/dashboard/summary-cards";
-import { EmptyState } from "@/components/ui/states";
 import { dashboardData } from "@/lib/dashboard-data";
 
 export const Route = createFileRoute("/dashboard")({
@@ -138,11 +138,7 @@ function DashboardPage() {
               onProceed={() => navigate({ to: "/new-analysis/project-parameters" })}
             />
           ) : (
-
-            <EmptyState
-              title="Section coming next"
-              description="This tab will show the detailed breakdown for the selected analysis area."
-            />
+            <MapPreviewTab />
           )}
         </DashboardTabs>
       </div>
