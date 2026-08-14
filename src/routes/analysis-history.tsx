@@ -133,7 +133,7 @@ function AnalysisHistoryPage() {
         }
       />
 
-      <div className="grid min-w-0 gap-4 xl:grid-cols-[minmax(0,1fr)_304px]">
+      <div className="grid min-w-0 gap-4 xl:grid-cols-[minmax(0,1fr)_284px]">
         <div className="flex min-w-0 flex-col gap-4">
           <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
             {analysisHistorySummary.map((card) => (

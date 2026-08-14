@@ -52,7 +52,7 @@ export function AnalysisHistoryTable({
             </th>
             {["Analysis ID", "Location", "Date & Time", "Suitability Score", "Recommended", "Status"].map(
               (label) => (
-                <th key={label} className="text-label px-2 py-2.5 font-semibold whitespace-nowrap">
+                <th key={label} className="text-label px-1.5 py-2.5 font-semibold whitespace-nowrap">
                   {label}
                 </th>
               ),
@@ -79,22 +79,22 @@ export function AnalysisHistoryTable({
                     aria-label={`Select ${record.id}`}
                   />
                 </td>
-                <td className="text-label px-2 py-2.5 whitespace-nowrap">{record.id}</td>
-                <td className="px-2 py-2.5">
+                <td className="text-label px-1.5 py-2.5 whitespace-nowrap">{record.id}</td>
+                <td className="w-[150px] max-w-[150px] px-1.5 py-2.5">
                   <p className="text-label truncate font-semibold">{record.location}</p>
                   <p className="text-wind truncate text-[11px]">{record.coordinatesLabel}</p>
                 </td>
-                <td className="px-2 py-2.5 whitespace-nowrap">
+                <td className="px-1.5 py-2.5 whitespace-nowrap">
                   <p className="text-label">{record.dateLabel}</p>
                   <p className="text-helper">{record.timeLabel}</p>
                 </td>
-                <td className="px-2 py-2.5">
-                  <ScoreDial score={record.score} size={36} />
+                <td className="px-1.5 py-2.5">
+                  <ScoreDial score={record.score} size={34} />
                 </td>
-                <td className="px-2 py-2.5">
+                <td className="px-1.5 py-2.5">
                   <TechnologyCell technology={record.technology} capacityLabel={record.capacityLabel} />
                 </td>
-                <td className="px-2 py-2.5">
+                <td className="px-1.5 py-2.5">
                   <AnalysisStatusBadge status={record.status} />
                 </td>
                 <td
