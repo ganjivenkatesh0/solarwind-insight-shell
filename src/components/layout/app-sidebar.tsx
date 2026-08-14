@@ -52,6 +52,11 @@ export function AppSidebar({ onNavigate }: { onNavigate?: () => void }) {
             title="About Reports"
             description="Generate comprehensive reports with insights, visualizations and recommendations for your renewable energy projects."
           />
+        ) : isSettings ? (
+          <SidebarAboutCard
+            title="About Settings"
+            description="Manage your account, preferences, data sources, notifications and application configuration."
+          />
         ) : (
           <SidebarAboutCard />
         )}
