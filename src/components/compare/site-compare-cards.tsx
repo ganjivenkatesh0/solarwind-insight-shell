@@ -37,8 +37,8 @@ export function SiteCompareCards({
   onSelect,
 }: {
   sites: CompareSite[];
-  bestSiteId?: string;
-  selectedId?: string;
+  bestSiteId?: string | undefined;
+  selectedId?: string | undefined;
   onSelect: (id: string) => void;
 }) {
   return (
