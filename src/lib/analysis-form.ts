@@ -274,3 +274,165 @@ export function saveParametersDraft(draft: ParametersDraft) {
     /* storage unavailable — draft is kept in memory only */
   }
 }
+
+/* ------------------------------------------------------------------ */
+/* Step 3 — Preferences                                                */
+/* ------------------------------------------------------------------ */
+
+export type AnalysisFocus = "solar" | "wind" | "hybrid" | "custom";
+
+export type FactorKey =
+  | "solarResource"
+  | "windResource"
+  | "terrain"
+  | "infrastructure"
+  | "environmental"
+  | "economic"
+  | "technical";
+
+export type PreferencesDraft = {
+  focus: AnalysisFocus;
+  weights: Record<FactorKey, number>;
+  riskTolerance: string;
+  minFeasibility: string;
+  futureProjections: boolean;
+};
+
+export const defaultFactorWeights: Record<FactorKey, number> = {
+  solarResource: 25,
+  windResource: 20,
+  terrain: 15,
+  infrastructure: 15,
+  environmental: 10,
+  economic: 10,
+  technical: 5,
+};
+
+export const defaultPreferencesDraft: PreferencesDraft = {
+  focus: "solar",
+  weights: { ...defaultFactorWeights },
+  riskTolerance: "medium",
+  minFeasibility: "60",
+  futureProjections: true,
+};
+
+export const analysisFocusOptions: {
+  value: AnalysisFocus;
+  title: string;
+  description: string;
+}[] = [
+  {
+    value: "solar",
+    title: "Solar Focused",
+    description: "Prioritize solar potential and PV generation",
+  },
+  {
+    value: "wind",
+    title: "Wind Focused",
+    description: "Prioritize wind potential and wind generation",
+  },
+  {
+    value: "hybrid",
+    title: "Hybrid (Solar + Wind)",
+    description: "Balance both solar and wind potential",
+  },
+  {
+    value: "custom",
+    title: "Custom",
+    description: "Customize factor weights manually",
+  },
+];
+
+export const factorPriorityItems: {
+  key: FactorKey;
+  label: string;
+  hint: string;
+}[] = [
+  {
+    key: "solarResource",
+    label: "Solar Resource Potential",
+    hint: "Solar irradiance and PV yield potential at the site",
+  },
+  {
+    key: "windResource",
+    label: "Wind Resource Potential",
+    hint: "Wind speed, density and turbine suitability",
+  },
+  { key: "terrain", label: "Terrain & Topography", hint: "Slope, elevation and ruggedness" },
+  {
+    key: "infrastructure",
+    label: "Infrastructure & Access",
+    hint: "Roads, transmission lines and substations",
+  },
+  {
+    key: "environmental",
+    label: "Environmental Factors",
+    hint: "Ecological sensitivity and land-use impact",
+  },
+  { key: "economic", label: "Economic Viability", hint: "Costs, revenue potential and ROI" },
+  {
+    key: "technical",
+    label: "Technical Feasibility",
+    hint: "Constraints, regulations and buildability",
+  },
+];
+
+export const riskToleranceOptions = [
+  { value: "low", label: "Low" },
+  { value: "medium", label: "Medium" },
+  { value: "high", label: "High" },
+] as const;
+
+export const preferenceInfoItems: {
+  icon: "focus" | "priorities" | "risk" | "feasibility";
+  title: string;
+  description: string;
+}[] = [
+  {
+    icon: "focus",
+    title: "Analysis Focus",
+    description: "Choose the type of project analysis you want to prioritize.",
+  },
+  {
+    icon: "priorities",
+    title: "Factor Priorities",
+    description: "Higher percentage means more influence on the final score.",
+  },
+  {
+    icon: "risk",
+    title: "Risk Tolerance",
+    description: "Affects financial assumptions and uncertainty handling.",
+  },
+  {
+    icon: "feasibility",
+    title: "Minimum Feasibility",
+    description: "Filters out sites below your acceptable threshold.",
+  },
+];
+
+const PREFS_STORAGE_KEY = "swdi:new-analysis-preferences";
+
+export function loadPreferencesDraft(): PreferencesDraft {
+  if (typeof window === "undefined") return defaultPreferencesDraft;
+  try {
+    const raw = window.localStorage.getItem(PREFS_STORAGE_KEY);
+    if (!raw) return defaultPreferencesDraft;
+    const parsed = JSON.parse(raw) as Partial<PreferencesDraft>;
+    return {
+      ...defaultPreferencesDraft,
+      ...parsed,
+      weights: { ...defaultFactorWeights, ...(parsed.weights ?? {}) },
+    };
+  } catch {
+    return defaultPreferencesDraft;
+  }
+}
+
+export function savePreferencesDraft(draft: PreferencesDraft) {
+  if (typeof window === "undefined") return;
+  try {
+    window.localStorage.setItem(PREFS_STORAGE_KEY, JSON.stringify(draft));
+  } catch {
+    /* storage unavailable — draft is kept in memory only */
+  }
+}
