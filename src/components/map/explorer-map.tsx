@@ -48,7 +48,7 @@ function MapControls({ onLayersClick }: { onLayersClick: () => void }) {
   const map = useMap();
 
   const fit = () => {
-    map.setView([mapSites[0]?.lat ?? 17.385, 17.385 ? 78.4867 : 78.4867], 10);
+    map.setView([selectedSite.latitude, selectedSite.longitude], 10);
     map.invalidateSize();
   };
 
