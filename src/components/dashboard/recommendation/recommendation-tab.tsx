@@ -248,7 +248,7 @@ export function RecommendationTab({
                       <StatusBadge tone={alt.badgeTone}>{alt.badge}</StatusBadge>
                     </div>
                     <p className="text-helper mt-0.5 leading-snug">{alt.description}</p>
-                    <dl className="mt-3 grid grid-cols-2 gap-x-4 gap-y-3">
+                    <dl className="mt-3 grid grid-cols-1 gap-x-4 gap-y-3 sm:grid-cols-2">
                       {alt.metrics.map((m) => (
                         <div key={m.label} className="flex min-w-0 flex-col gap-0.5 overflow-hidden">
                           <dt className="text-helper leading-snug">{m.label}</dt>
