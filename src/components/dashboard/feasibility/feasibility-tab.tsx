@@ -117,7 +117,7 @@ export function FeasibilityTab({
               return (
                 <li key={row.label} className="flex items-center gap-2">
                   <Icon className="text-success size-4 shrink-0" />
-                  <span className="text-label w-[38%] min-w-0 truncate font-normal">
+                  <span className="text-label w-[40%] min-w-0 leading-snug font-normal">
                     {row.label}
                   </span>
                   <span className="bg-muted h-2 min-w-0 flex-1 overflow-hidden rounded-full">
@@ -162,8 +162,8 @@ export function FeasibilityTab({
                 <li key={row.label} className="flex items-center gap-3 py-2.5">
                   <Icon className="text-info size-4 shrink-0" />
                   <div className="min-w-0 flex-1">
-                    <p className="text-label truncate">{row.label}</p>
-                    <p className="text-helper truncate">{row.description}</p>
+                    <p className="text-label leading-snug">{row.label}</p>
+                    <p className="text-helper leading-snug">{row.description}</p>
                   </div>
                   <span
                     className={cn(
@@ -187,32 +187,32 @@ export function FeasibilityTab({
       {/* Row 2 */}
       <div className="grid gap-4 xl:grid-cols-3">
         <FeasibilityPanel title="Risk Assessment Matrix" subtitle="Comprehensive risk evaluation">
-          <div className="grid gap-4 sm:grid-cols-2">
-            <div className="min-w-0 space-y-2">
+          <div className="grid gap-5 sm:grid-cols-2">
+            <div className="min-w-0 space-y-3">
               <RiskDonut
                 slices={data.risk.slices}
                 overall={data.risk.overall}
                 overallLabel={data.risk.overallLabel}
               />
-              <ul className="space-y-1.5">
+              <ul className="space-y-2">
                 {data.risk.slices.map((slice) => (
                   <li key={slice.label} className="flex items-center gap-2">
                     <span
                       className="size-2 shrink-0 rounded-full"
                       style={{ backgroundColor: slice.color }}
                     />
-                    <span className="text-helper min-w-0 flex-1 truncate">{slice.label}</span>
+                    <span className="text-helper min-w-0 flex-1 leading-snug">{slice.label}</span>
                     <span className="text-label shrink-0 font-semibold">{slice.value}%</span>
                   </li>
                 ))}
               </ul>
             </div>
-            <div className="border-border min-w-0 rounded-xl border p-3">
-              <p className="text-label mb-2 font-semibold">Top Risk Factors</p>
+            <div className="border-border min-w-0 rounded-xl border p-4">
+              <p className="text-label mb-3 font-semibold">Top Risk Factors</p>
               <ul className="divide-border divide-y">
                 {data.risk.factors.map((factor) => (
-                  <li key={factor.label} className="flex items-center gap-2 py-2">
-                    <span className="text-helper min-w-0 flex-1 truncate">{factor.label}</span>
+                  <li key={factor.label} className="flex items-center gap-2 py-2.5">
+                    <span className="text-helper min-w-0 flex-1 leading-snug">{factor.label}</span>
                     <span
                       className={cn(
                         "shrink-0 text-[11px] font-semibold",
@@ -224,7 +224,7 @@ export function FeasibilityTab({
                   </li>
                 ))}
               </ul>
-              <div className="border-border mt-2 flex items-center justify-between border-t pt-2">
+              <div className="border-border mt-3 flex items-center justify-between border-t pt-3">
                 <span className="text-label font-semibold">Total</span>
                 <span className="text-label font-semibold">100%</span>
               </div>
@@ -233,16 +233,16 @@ export function FeasibilityTab({
         </FeasibilityPanel>
 
         <FeasibilityPanel title="Feasibility Summary" subtitle="Key takeaways and recommendations">
-          <div className="border-wind/25 bg-wind-soft/40 flex items-start gap-3 rounded-xl border p-3">
+          <div className="border-wind/25 bg-wind-soft/40 flex items-start gap-3 rounded-xl border p-4">
             <span className="bg-wind/15 text-wind grid size-11 shrink-0 place-items-center rounded-xl">
               <Medal className="size-6" />
             </span>
             <div className="min-w-0">
               <p className="text-wind text-sm font-semibold">{data.summary.title}</p>
-              <p className="text-helper mt-1">{data.summary.description}</p>
+              <p className="text-helper mt-1 leading-snug">{data.summary.description}</p>
             </div>
           </div>
-          <div className="mt-3 grid gap-2 sm:grid-cols-3">
+          <div className="mt-4 grid gap-2 sm:grid-cols-3">
             {data.summary.metrics.map((metric) => (
               <div
                 key={metric.label}
@@ -260,16 +260,16 @@ export function FeasibilityTab({
         <FeasibilityPanel title="Recommendations" subtitle="Actionable recommendations for the site">
           <ul className="divide-border divide-y">
             {data.recommendations.map((item) => (
-              <li key={item} className="flex items-start gap-2 py-2">
+              <li key={item} className="flex items-start gap-3 py-2.5">
                 <CircleCheck className="text-success mt-0.5 size-4 shrink-0" />
-                <span className="text-label min-w-0 font-normal">{item}</span>
+                <span className="text-label min-w-0 leading-snug font-normal">{item}</span>
               </li>
             ))}
           </ul>
           <Button
             variant="outline"
             size="sm"
-            className="text-wind border-wind/30 mt-3 w-full gap-2"
+            className="text-wind border-wind/30 mt-4 w-full gap-2"
             onClick={onViewRecommendations}
           >
             View Detailed Recommendations
