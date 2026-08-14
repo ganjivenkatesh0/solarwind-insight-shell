@@ -152,7 +152,10 @@ export function ReportsTable({
                           <RetryIcon className="size-4" /> Regenerate
                         </DropdownMenuItem>
                         <DropdownMenuSeparator />
-                        <DropdownMenuItem variant="destructive" onClick={() => onDelete(record)}>
+                        <DropdownMenuItem
+                          onClick={() => onDelete(record)}
+                          className="text-error focus:text-error"
+                        >
                           <DeleteIcon className="size-4" /> Delete report
                         </DropdownMenuItem>
                       </DropdownMenuContent>
