@@ -45,15 +45,16 @@ export function AppSidebar({ onNavigate }: { onNavigate?: () => void }) {
       </nav>
 
       <div className="p-4">
-        <SidebarAboutCard
-          title={isReports ? "About Reports" : undefined}
-          description={
-            isReports
-              ? "Generate comprehensive reports with insights, visualizations and recommendations for your renewable energy projects."
-              : undefined
-          }
-        />
+        {isReports ? (
+          <SidebarAboutCard
+            title="About Reports"
+            description="Generate comprehensive reports with insights, visualizations and recommendations for your renewable energy projects."
+          />
+        ) : (
+          <SidebarAboutCard />
+        )}
       </div>
+
 
     </div>
   );
