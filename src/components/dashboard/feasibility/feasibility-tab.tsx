@@ -233,16 +233,16 @@ export function FeasibilityTab({
         </FeasibilityPanel>
 
         <FeasibilityPanel title="Feasibility Summary" subtitle="Key takeaways and recommendations">
-          <div className="border-wind/25 bg-wind-soft/40 flex items-start gap-3 rounded-xl border p-3">
+          <div className="border-wind/25 bg-wind-soft/40 flex items-start gap-3 rounded-xl border p-4">
             <span className="bg-wind/15 text-wind grid size-11 shrink-0 place-items-center rounded-xl">
               <Medal className="size-6" />
             </span>
             <div className="min-w-0">
               <p className="text-wind text-sm font-semibold">{data.summary.title}</p>
-              <p className="text-helper mt-1">{data.summary.description}</p>
+              <p className="text-helper mt-1 leading-snug">{data.summary.description}</p>
             </div>
           </div>
-          <div className="mt-3 grid gap-2 sm:grid-cols-3">
+          <div className="mt-4 grid gap-2 sm:grid-cols-3">
             {data.summary.metrics.map((metric) => (
               <div
                 key={metric.label}
@@ -260,16 +260,16 @@ export function FeasibilityTab({
         <FeasibilityPanel title="Recommendations" subtitle="Actionable recommendations for the site">
           <ul className="divide-border divide-y">
             {data.recommendations.map((item) => (
-              <li key={item} className="flex items-start gap-2 py-2">
+              <li key={item} className="flex items-start gap-3 py-2.5">
                 <CircleCheck className="text-success mt-0.5 size-4 shrink-0" />
-                <span className="text-label min-w-0 font-normal">{item}</span>
+                <span className="text-label min-w-0 leading-snug font-normal">{item}</span>
               </li>
             ))}
           </ul>
           <Button
             variant="outline"
             size="sm"
-            className="text-wind border-wind/30 mt-3 w-full gap-2"
+            className="text-wind border-wind/30 mt-4 w-full gap-2"
             onClick={onViewRecommendations}
           >
             View Detailed Recommendations
