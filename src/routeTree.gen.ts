@@ -10,33 +10,141 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as AnalysisHistoryRouteImport } from './routes/analysis-history'
+import { Route as CompareSitesRouteImport } from './routes/compare-sites'
+import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as MapExplorerRouteImport } from './routes/map-explorer'
+import { Route as NewAnalysisRouteImport } from './routes/new-analysis'
+import { Route as ReportsRouteImport } from './routes/reports'
+import { Route as SettingsRouteImport } from './routes/settings'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AnalysisHistoryRoute = AnalysisHistoryRouteImport.update({
+  id: '/analysis-history',
+  path: '/analysis-history',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CompareSitesRoute = CompareSitesRouteImport.update({
+  id: '/compare-sites',
+  path: '/compare-sites',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardRoute = DashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MapExplorerRoute = MapExplorerRouteImport.update({
+  id: '/map-explorer',
+  path: '/map-explorer',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewAnalysisRoute = NewAnalysisRouteImport.update({
+  id: '/new-analysis',
+  path: '/new-analysis',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReportsRoute = ReportsRouteImport.update({
+  id: '/reports',
+  path: '/reports',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SettingsRoute = SettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/analysis-history': typeof AnalysisHistoryRoute
+  '/compare-sites': typeof CompareSitesRoute
+  '/dashboard': typeof DashboardRoute
+  '/map-explorer': typeof MapExplorerRoute
+  '/new-analysis': typeof NewAnalysisRoute
+  '/reports': typeof ReportsRoute
+  '/settings': typeof SettingsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/analysis-history': typeof AnalysisHistoryRoute
+  '/compare-sites': typeof CompareSitesRoute
+  '/dashboard': typeof DashboardRoute
+  '/map-explorer': typeof MapExplorerRoute
+  '/new-analysis': typeof NewAnalysisRoute
+  '/reports': typeof ReportsRoute
+  '/settings': typeof SettingsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/analysis-history': typeof AnalysisHistoryRoute
+  '/compare-sites': typeof CompareSitesRoute
+  '/dashboard': typeof DashboardRoute
+  '/map-explorer': typeof MapExplorerRoute
+  '/new-analysis': typeof NewAnalysisRoute
+  '/reports': typeof ReportsRoute
+  '/settings': typeof SettingsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/analysis-history'
+    | '/compare-sites'
+    | '/dashboard'
+    | '/map-explorer'
+    | '/new-analysis'
+    | '/reports'
+    | '/settings'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/analysis-history'
+    | '/compare-sites'
+    | '/dashboard'
+    | '/map-explorer'
+    | '/new-analysis'
+    | '/reports'
+    | '/settings'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/analysis-history'
+    | '/compare-sites'
+    | '/dashboard'
+    | '/map-explorer'
+    | '/new-analysis'
+    | '/reports'
+    | '/settings'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  AnalysisHistoryRoute: typeof AnalysisHistoryRoute
+  CompareSitesRoute: typeof CompareSitesRoute
+  DashboardRoute: typeof DashboardRoute
+  MapExplorerRoute: typeof MapExplorerRoute
+  NewAnalysisRoute: typeof NewAnalysisRoute
+  ReportsRoute: typeof ReportsRoute
+  SettingsRoute: typeof SettingsRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +156,75 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/analysis-history': {
+      id: '/analysis-history'
+      path: '/analysis-history'
+      fullPath: '/analysis-history'
+      preLoaderRoute: typeof AnalysisHistoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/compare-sites': {
+      id: '/compare-sites'
+      path: '/compare-sites'
+      fullPath: '/compare-sites'
+      preLoaderRoute: typeof CompareSitesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard': {
+      id: '/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/map-explorer': {
+      id: '/map-explorer'
+      path: '/map-explorer'
+      fullPath: '/map-explorer'
+      preLoaderRoute: typeof MapExplorerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/new-analysis': {
+      id: '/new-analysis'
+      path: '/new-analysis'
+      fullPath: '/new-analysis'
+      preLoaderRoute: typeof NewAnalysisRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reports': {
+      id: '/reports'
+      path: '/reports'
+      fullPath: '/reports'
+      preLoaderRoute: typeof ReportsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/settings': {
+      id: '/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof SettingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  AnalysisHistoryRoute: AnalysisHistoryRoute,
+  CompareSitesRoute: CompareSitesRoute,
+  DashboardRoute: DashboardRoute,
+  MapExplorerRoute: MapExplorerRoute,
+  NewAnalysisRoute: NewAnalysisRoute,
+  ReportsRoute: ReportsRoute,
+  SettingsRoute: SettingsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
