@@ -327,20 +327,20 @@ export function EnergyFinancialTab({
       {/* Row 2 */}
       <div className="grid gap-4 xl:grid-cols-3">
         <FeasibilityPanel title="Cost Breakdown" subtitle="Total project cost distribution">
-          <div className="grid items-center gap-3 sm:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
+          <div className="flex flex-col items-center gap-3">
             <CostDonut slices={data.cost.slices} total={data.cost.total} />
-            <ul className="min-w-0 space-y-2.5">
+            <ul className="w-full min-w-0 space-y-2">
               {data.cost.slices.map((slice) => (
                 <li key={slice.label} className="flex items-center gap-2">
                   <span
                     className="size-2.5 shrink-0 rounded-full"
                     style={{ backgroundColor: slice.color }}
                   />
-                  <span className="text-label min-w-0 flex-1 text-xs leading-snug font-normal">
+                  <span className="text-label min-w-0 flex-1 truncate text-xs font-normal">
                     {slice.label}
                   </span>
                   <span className="text-label shrink-0 text-xs font-semibold">{slice.amount}</span>
-                  <span className="text-helper w-11 shrink-0 text-right">
+                  <span className="text-helper w-14 shrink-0 text-right">
                     ({slice.share.toFixed(1)}%)
                   </span>
                 </li>
