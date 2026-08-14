@@ -1,7 +1,5 @@
 import { ArrowDown, Brain, ClipboardList, FileText, MapPin, Sun } from "lucide-react";
 
-import { LocationIcon } from "@/lib/icons";
-
 const stages: {
   Icon: typeof Sun;
   wrap: string;
@@ -39,10 +37,15 @@ const stages: {
   },
 ];
 
-export type SummaryRow = { icon: "location" | "area" | "budget" | "type" | "install" | "focus" | "score" | "risk"; label: string; value: string };
+export type SummaryRow = {
+  Icon: typeof Sun;
+  iconClass: string;
+  label: string;
+  value: string;
+};
 
 /** Right-hand column for Step 4: process timeline + analysis summary. */
-export function ReviewSidebar({ summary }: { summary: { label: string; value: string }[] }) {
+export function ReviewSidebar({ summary }: { summary: SummaryRow[] }) {
   return (
     <div className="space-y-4">
       <section className="bg-success-soft border-success/25 rounded-xl border p-4">
@@ -83,7 +86,7 @@ export function ReviewSidebar({ summary }: { summary: { label: string; value: st
           {summary.map((row) => (
             <div key={row.label} className="flex items-start justify-between gap-3">
               <dt className="text-helper flex min-w-0 items-center gap-2">
-                <LocationIcon className="text-muted-foreground size-3.5 shrink-0 opacity-0" />
+                <row.Icon className={`size-3.5 shrink-0 ${row.iconClass}`} />
                 <span className="truncate">{row.label}</span>
               </dt>
               <dd className="text-label text-right font-medium">{row.value}</dd>
