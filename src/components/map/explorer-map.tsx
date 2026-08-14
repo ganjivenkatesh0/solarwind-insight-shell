@@ -114,7 +114,7 @@ export default function ExplorerMap({
       {active.terrain ? (
         <TileLayer
           url="https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png"
-          opacity={0.3}
+          opacity={0.18}
           attribution="&copy; OpenTopoMap"
         />
       ) : null}
