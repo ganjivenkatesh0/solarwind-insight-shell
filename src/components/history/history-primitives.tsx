@@ -109,8 +109,8 @@ export function TechnologyCell({
     <div className="flex items-center gap-2">
       <Icon className={cn("size-4 shrink-0", techColor[technology])} strokeWidth={2} />
       <div className="min-w-0">
-        <p className="text-label truncate">{technology}</p>
-        <p className={cn("truncate text-[11px] font-semibold", techColor[technology])}>{capacityLabel}</p>
+        <p className="text-label whitespace-nowrap">{technology}</p>
+        <p className={cn("text-[11px] font-semibold whitespace-nowrap", techColor[technology])}>{capacityLabel}</p>
       </div>
     </div>
   );
