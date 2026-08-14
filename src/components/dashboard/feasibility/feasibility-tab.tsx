@@ -187,32 +187,32 @@ export function FeasibilityTab({
       {/* Row 2 */}
       <div className="grid gap-4 xl:grid-cols-3">
         <FeasibilityPanel title="Risk Assessment Matrix" subtitle="Comprehensive risk evaluation">
-          <div className="grid gap-4 sm:grid-cols-2">
-            <div className="min-w-0 space-y-2">
+          <div className="grid gap-5 sm:grid-cols-2">
+            <div className="min-w-0 space-y-3">
               <RiskDonut
                 slices={data.risk.slices}
                 overall={data.risk.overall}
                 overallLabel={data.risk.overallLabel}
               />
-              <ul className="space-y-1.5">
+              <ul className="space-y-2">
                 {data.risk.slices.map((slice) => (
                   <li key={slice.label} className="flex items-center gap-2">
                     <span
                       className="size-2 shrink-0 rounded-full"
                       style={{ backgroundColor: slice.color }}
                     />
-                    <span className="text-helper min-w-0 flex-1 truncate">{slice.label}</span>
+                    <span className="text-helper min-w-0 flex-1 leading-snug">{slice.label}</span>
                     <span className="text-label shrink-0 font-semibold">{slice.value}%</span>
                   </li>
                 ))}
               </ul>
             </div>
-            <div className="border-border min-w-0 rounded-xl border p-3">
-              <p className="text-label mb-2 font-semibold">Top Risk Factors</p>
+            <div className="border-border min-w-0 rounded-xl border p-4">
+              <p className="text-label mb-3 font-semibold">Top Risk Factors</p>
               <ul className="divide-border divide-y">
                 {data.risk.factors.map((factor) => (
-                  <li key={factor.label} className="flex items-center gap-2 py-2">
-                    <span className="text-helper min-w-0 flex-1 truncate">{factor.label}</span>
+                  <li key={factor.label} className="flex items-center gap-2 py-2.5">
+                    <span className="text-helper min-w-0 flex-1 leading-snug">{factor.label}</span>
                     <span
                       className={cn(
                         "shrink-0 text-[11px] font-semibold",
@@ -224,7 +224,7 @@ export function FeasibilityTab({
                   </li>
                 ))}
               </ul>
-              <div className="border-border mt-2 flex items-center justify-between border-t pt-2">
+              <div className="border-border mt-3 flex items-center justify-between border-t pt-3">
                 <span className="text-label font-semibold">Total</span>
                 <span className="text-label font-semibold">100%</span>
               </div>
