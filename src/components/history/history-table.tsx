@@ -40,10 +40,10 @@ export function AnalysisHistoryTable({
 
   return (
     <div className="min-w-0 overflow-x-auto">
-      <table className="w-full min-w-[700px] border-collapse text-left">
+      <table className="w-full min-w-[680px] border-collapse text-left">
         <thead>
           <tr className="bg-muted/60">
-            <th className="w-9 px-3 py-3">
+            <th className="w-8 px-2.5 py-2.5">
               <Checkbox
                 checked={allChecked}
                 onCheckedChange={(v) => onToggleAll(v === true)}
@@ -52,12 +52,12 @@ export function AnalysisHistoryTable({
             </th>
             {["Analysis ID", "Location", "Date & Time", "Suitability Score", "Recommended", "Status"].map(
               (label) => (
-                <th key={label} className="text-label px-2.5 py-3 font-semibold whitespace-nowrap">
+                <th key={label} className="text-label px-2 py-2.5 font-semibold whitespace-nowrap">
                   {label}
                 </th>
               ),
             )}
-            <th className="text-label px-4 py-3 text-right font-semibold whitespace-nowrap">Actions</th>
+            <th className="text-label px-2.5 py-3 text-right font-semibold whitespace-nowrap">Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -72,33 +72,33 @@ export function AnalysisHistoryTable({
                   isSelected && "bg-primary-soft/50",
                 )}
               >
-                <td className="px-3 py-3" onClick={(e) => e.stopPropagation()}>
+                <td className="px-2.5 py-2.5" onClick={(e) => e.stopPropagation()}>
                   <Checkbox
                     checked={checkedIds.includes(record.id)}
                     onCheckedChange={() => onToggleCheck(record.id)}
                     aria-label={`Select ${record.id}`}
                   />
                 </td>
-                <td className="text-label px-2.5 py-3 whitespace-nowrap">{record.id}</td>
-                <td className="px-2.5 py-3">
+                <td className="text-label px-2 py-2.5 whitespace-nowrap">{record.id}</td>
+                <td className="px-2 py-2.5">
                   <p className="text-label truncate font-semibold">{record.location}</p>
                   <p className="text-wind truncate text-[11px]">{record.coordinatesLabel}</p>
                 </td>
-                <td className="px-2.5 py-3 whitespace-nowrap">
+                <td className="px-2 py-2.5 whitespace-nowrap">
                   <p className="text-label">{record.dateLabel}</p>
                   <p className="text-helper">{record.timeLabel}</p>
                 </td>
-                <td className="px-2.5 py-3">
-                  <ScoreDial score={record.score} />
+                <td className="px-2 py-2.5">
+                  <ScoreDial score={record.score} size={36} />
                 </td>
-                <td className="px-2.5 py-3">
+                <td className="px-2 py-2.5">
                   <TechnologyCell technology={record.technology} capacityLabel={record.capacityLabel} />
                 </td>
-                <td className="px-2.5 py-3">
+                <td className="px-2 py-2.5">
                   <AnalysisStatusBadge status={record.status} />
                 </td>
-                <td className="px-4 py-3" onClick={(e) => e.stopPropagation()}>
-                  <div className="flex items-center justify-end gap-1.5">
+                <td className="px-2.5 py-2.5" onClick={(e) => e.stopPropagation()}>
+                  <div className="flex items-center justify-end gap-1">
                     <IconAction label={`View ${record.id}`} onClick={() => onView(record)}>
                       <ViewIcon className="size-4" />
                     </IconAction>
@@ -148,7 +148,7 @@ function IconAction({
       aria-label={label}
       title={label}
       onClick={onClick}
-      className={cn("size-8 rounded-lg text-muted-foreground", className)}
+      className={cn("size-7 rounded-lg text-muted-foreground", className)}
     >
       {children}
     </Button>
