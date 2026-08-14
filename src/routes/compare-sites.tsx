@@ -123,7 +123,7 @@ function CompareSitesPage() {
         />
 
         {sites.length && bestSite ? (
-          <div className="grid min-w-0 gap-4 xl:grid-cols-[minmax(0,1fr)_320px]">
+          <div className="grid min-w-0 gap-4 xl:grid-cols-[minmax(0,1fr)_296px]">
             <div className="min-w-0 space-y-4">
               <SiteCompareCards
                 sites={sites}
