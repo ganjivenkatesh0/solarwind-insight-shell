@@ -99,15 +99,15 @@ export function SiteCompareCards({
               </p>
               <p className="text-helper mt-1 truncate">{site.coordinates}</p>
 
-              <div className="mt-2.5 grid grid-cols-[1.05fr_1fr_1fr] gap-1">
+              <div className="mt-2.5 grid grid-cols-3 gap-1">
                 <MetricBox
-                  label="Suitability"
+                  label="Score"
                   value={site.suitability.toFixed(1)}
                   suffix="/100"
                   accent={accent.color}
                   emphasise
                 />
-                <MetricBox label="Recommended" value={site.technology} accent={accent.color} />
+                <MetricBox label="Tech" value={site.technology} accent={accent.color} />
                 <MetricBox
                   label="Capacity"
                   value={`${site.capacityMw.toFixed(1)} MW`}
