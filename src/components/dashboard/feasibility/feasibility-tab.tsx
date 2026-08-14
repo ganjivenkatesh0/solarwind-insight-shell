@@ -248,7 +248,9 @@ export function FeasibilityTab({
                 key={metric.label}
                 className={cn("min-w-0 rounded-xl border p-3 text-center", toneSoft[metric.tone])}
               >
-                <p className={cn("text-helper truncate", toneText[metric.tone])}>{metric.label}</p>
+                <p className={cn("text-helper leading-snug", toneText[metric.tone])}>
+                  {metric.label}
+                </p>
                 <p className="text-label mt-1 font-bold">{metric.value}</p>
               </div>
             ))}
