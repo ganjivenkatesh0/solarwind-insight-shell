@@ -371,7 +371,7 @@ export function RecommendationTab({
           </span>
           <div className="min-w-0">
             <h3 className="text-section-title whitespace-nowrap">{data.overall.title}</h3>
-            <p className="text-page-subtitle mt-0.5">{data.overall.summary}</p>
+            <p className="text-page-subtitle mt-0.5 xl:whitespace-nowrap">{data.overall.summary}</p>
           </div>
         </div>
 
