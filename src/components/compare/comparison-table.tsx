@@ -3,7 +3,7 @@ import {
   Info,
 } from "lucide-react";
 
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import {
   EnvironmentalIcon,
   FeasibilityIcon,
@@ -108,6 +108,7 @@ export function OverviewComparisonTable({ sites }: { sites: CompareSite[] }) {
                     <Icon className={cn("size-4", criterionIconTone[criterion.icon])} />
                     {criterion.label}
                     {criterion.hint ? (
+                      <TooltipProvider>
                       <Tooltip>
                         <TooltipTrigger asChild>
                           <button type="button" aria-label={`About ${criterion.label}`}>
@@ -116,6 +117,7 @@ export function OverviewComparisonTable({ sites }: { sites: CompareSite[] }) {
                         </TooltipTrigger>
                         <TooltipContent>{criterion.hint}</TooltipContent>
                       </Tooltip>
+                      </TooltipProvider>
                     ) : null}
                   </span>
                 </td>
