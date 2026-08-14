@@ -34,14 +34,14 @@ export function HistorySummaryCard({ card }: { card: AnalysisHistorySummary }) {
         <Icon className="size-4.5" strokeWidth={1.75} />
       </span>
       <div className="min-w-0">
-        <p className="text-helper truncate">{card.label}</p>
+        <p className="text-helper leading-tight break-words whitespace-normal">{card.label}</p>
         <p className="truncate text-[1.375rem] leading-7 font-bold tracking-tight">
           {card.value}
           {card.suffix ? (
             <span className="text-helper ml-1 align-middle font-medium">{card.suffix}</span>
           ) : null}
         </p>
-        <p className="text-helper truncate">{card.caption}</p>
+        <p className="text-helper leading-tight break-words whitespace-normal">{card.caption}</p>
       </div>
     </div>
   );
@@ -109,8 +109,8 @@ export function TechnologyCell({
     <div className="flex items-center gap-2">
       <Icon className={cn("size-4 shrink-0", techColor[technology])} strokeWidth={2} />
       <div className="min-w-0">
-        <p className="text-label truncate">{technology}</p>
-        <p className={cn("truncate text-[11px] font-semibold", techColor[technology])}>{capacityLabel}</p>
+        <p className="text-label whitespace-nowrap">{technology}</p>
+        <p className={cn("text-[11px] font-semibold whitespace-nowrap", techColor[technology])}>{capacityLabel}</p>
       </div>
     </div>
   );

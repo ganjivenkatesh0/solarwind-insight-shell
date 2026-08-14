@@ -40,7 +40,7 @@ export function AnalysisHistoryTable({
 
   return (
     <div className="min-w-0 overflow-x-auto">
-      <table className="w-full min-w-[680px] border-separate border-spacing-0 text-left">
+      <table className="w-full min-w-[920px] border-separate border-spacing-0 text-left">
         <thead>
           <tr className="bg-muted/60">
             <th className="w-8 px-2.5 py-2.5">
@@ -80,9 +80,9 @@ export function AnalysisHistoryTable({
                   />
                 </td>
                 <td className="text-label px-1.5 py-2.5 whitespace-nowrap">{record.id}</td>
-                <td className="w-[150px] max-w-[150px] px-1.5 py-2.5">
-                  <p className="text-label truncate font-semibold">{record.location}</p>
-                  <p className="text-wind truncate text-[11px]">{record.coordinatesLabel}</p>
+                <td className="w-[230px] min-w-[230px] px-1.5 py-2.5">
+                  <p className="text-label font-semibold whitespace-nowrap">{record.location}</p>
+                  <p className="text-wind text-[11px] whitespace-nowrap">{record.coordinatesLabel}</p>
                 </td>
                 <td className="px-1.5 py-2.5 whitespace-nowrap">
                   <p className="text-label">{record.dateLabel}</p>
@@ -91,7 +91,7 @@ export function AnalysisHistoryTable({
                 <td className="px-1.5 py-2.5">
                   <ScoreDial score={record.score} size={34} />
                 </td>
-                <td className="px-1.5 py-2.5">
+                <td className="px-1.5 py-2.5 whitespace-nowrap">
                   <TechnologyCell technology={record.technology} capacityLabel={record.capacityLabel} />
                 </td>
                 <td className="px-1.5 py-2.5">
