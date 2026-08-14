@@ -160,7 +160,7 @@ export function RecommendationTab({
         </div>
       </header>
 
-      <div className="grid gap-4 xl:grid-cols-[1.05fr_1fr]">
+      <div className="grid gap-4 xl:grid-cols-[1fr_1.15fr]">
         {/* Primary recommendation */}
         <FeasibilityPanel
           title="Primary Recommendation"
@@ -198,7 +198,7 @@ export function RecommendationTab({
                 loading="lazy"
                 width={960}
                 height={640}
-                className="h-full max-h-[240px] min-h-[160px] w-full rounded-xl object-cover"
+                className="h-full max-h-[180px] min-h-[140px] w-full rounded-xl object-cover"
               />
             </div>
           </div>
@@ -230,9 +230,9 @@ export function RecommendationTab({
           title="Alternative Recommendations"
           action={<TrendIcon className="text-success size-4" />}
         >
-          <div className="space-y-3">
+          <div className="space-y-4">
             {data.alternatives.map((alt) => (
-              <div key={alt.id} className="border-border bg-card/60 rounded-2xl border p-3">
+              <div key={alt.id} className="border-border bg-card/60 rounded-2xl border p-4">
                 <div className="flex min-w-0 flex-wrap items-start gap-3 sm:flex-nowrap">
                   <img
                     src={altImage[alt.id]}
@@ -240,7 +240,7 @@ export function RecommendationTab({
                     loading="lazy"
                     width={768}
                     height={512}
-                    className="h-[86px] w-[110px] shrink-0 rounded-xl object-cover"
+                    className="h-[76px] w-[96px] shrink-0 rounded-xl object-cover"
                   />
                   <div className="min-w-0 flex-1">
                     <div className="flex flex-wrap items-center gap-2">
@@ -248,22 +248,22 @@ export function RecommendationTab({
                       <StatusBadge tone={alt.badgeTone}>{alt.badge}</StatusBadge>
                     </div>
                     <p className="text-helper mt-0.5 leading-snug">{alt.description}</p>
-                    <dl className="mt-2 grid grid-cols-2 gap-x-3 gap-y-2">
+                    <dl className="mt-3 grid grid-cols-2 gap-x-4 gap-y-3">
                       {alt.metrics.map((m) => (
-                        <div key={m.label} className="min-w-0">
+                        <div key={m.label} className="flex min-w-0 flex-col gap-0.5">
                           <dt className="text-helper leading-snug">{m.label}</dt>
                           <dd className="text-label font-semibold">{m.value}</dd>
                         </div>
                       ))}
                     </dl>
                   </div>
-                  <div className="flex shrink-0 flex-col items-center gap-1">
+                  <div className="flex shrink-0 flex-col items-center justify-center gap-1 self-center">
                     <MiniScoreRing
                       value={alt.score}
                       max={alt.scoreOutOf}
                       tone={alt.id === "hybrid" ? "hybrid" : "primary"}
                     />
-                    <p className="text-helper">Suitability Score</p>
+                    <p className="text-helper text-center">Suitability Score</p>
                   </div>
                 </div>
               </div>
