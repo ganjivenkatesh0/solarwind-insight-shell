@@ -60,8 +60,8 @@ function SummaryCard({
     <div className="surface-card flex min-w-0 items-center gap-3 px-4 py-3 transition-shadow hover:shadow-[var(--shadow-elevated)]">
       <span className={`grid size-9 shrink-0 place-items-center rounded-full ${iconClass}`}>{icon}</span>
       <div className="min-w-0">
-        <p className="text-helper truncate">{label}</p>
-        <p className="text-label truncate font-semibold">{value}</p>
+        <p className="text-helper">{label}</p>
+        <p className="text-label font-semibold">{value}</p>
         {caption ? <p className="text-helper truncate">{caption}</p> : null}
       </div>
     </div>

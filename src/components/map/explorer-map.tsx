@@ -108,13 +108,16 @@ export default function ExplorerMap({
       style={{ height: "100%", width: "100%" }}
     >
       <TileLayer
-        url={
-          active.terrain
-            ? "https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png"
-            : "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        }
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution="&copy; OpenStreetMap contributors"
       />
+      {active.terrain ? (
+        <TileLayer
+          url="https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png"
+          opacity={0.3}
+          attribution="&copy; OpenTopoMap"
+        />
+      ) : null}
 
       {active.heatmap
         ? heatPoints.map((p, i) => (

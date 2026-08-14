@@ -164,7 +164,7 @@ export function SelectedSitePanel({ onViewFullAnalysis }: { onViewFullAnalysis: 
         </div>
       </div>
 
-      <dl className="divide-y divide-border border-t border-border">
+      <dl className="flex-1 divide-y divide-border border-t border-border">
         {selectedSite.metrics.map((metric) => (
           <div key={metric.label} className="flex items-center justify-between gap-3 py-2.5">
             <dt className="text-helper min-w-0">{metric.label}</dt>
@@ -176,7 +176,7 @@ export function SelectedSitePanel({ onViewFullAnalysis }: { onViewFullAnalysis: 
         ))}
       </dl>
 
-      <Button className="w-full" onClick={onViewFullAnalysis}>
+      <Button className="mt-auto w-full" onClick={onViewFullAnalysis}>
         View Full Analysis
       </Button>
     </section>
@@ -218,9 +218,9 @@ export function SiteInsights({ onOpenSources }: { onOpenSources: () => void }) {
               {insightIcon(insight.icon)}
             </span>
             <div className="min-w-0">
-              <p className="text-helper truncate">{insight.label}</p>
+              <p className="text-helper">{insight.label}</p>
               <p className="text-lg font-bold tracking-tight">{insight.value}</p>
-              <p className="text-helper truncate">{insight.caption}</p>
+              <p className="text-helper">{insight.caption}</p>
             </div>
           </div>
         ))}
