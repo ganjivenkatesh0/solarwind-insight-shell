@@ -248,11 +248,11 @@ export function RecommendationTab({
                       <StatusBadge tone={alt.badgeTone}>{alt.badge}</StatusBadge>
                     </div>
                     <p className="text-helper mt-0.5 leading-snug">{alt.description}</p>
-                    <dl className="mt-2 grid grid-cols-2 gap-2 sm:grid-cols-4">
+                    <dl className="mt-2 grid grid-cols-2 gap-x-3 gap-y-2">
                       {alt.metrics.map((m) => (
                         <div key={m.label} className="min-w-0">
                           <dt className="text-helper leading-snug">{m.label}</dt>
-                          <dd className="text-label truncate font-semibold">{m.value}</dd>
+                          <dd className="text-label font-semibold">{m.value}</dd>
                         </div>
                       ))}
                     </dl>
@@ -365,12 +365,12 @@ export function RecommendationTab({
 
       {/* Overall recommendation bar */}
       <section className="surface-card border-primary/25 bg-primary-soft/50 flex flex-col gap-4 p-4 xl:flex-row xl:items-center xl:justify-between">
-        <div className="flex min-w-0 items-start gap-3">
+        <div className="flex min-w-0 flex-1 items-start gap-3">
           <span className="bg-primary/15 text-primary grid size-10 shrink-0 place-items-center rounded-full">
             <Gauge className="size-5" />
           </span>
           <div className="min-w-0">
-            <h3 className="text-section-title">{data.overall.title}</h3>
+            <h3 className="text-section-title whitespace-nowrap">{data.overall.title}</h3>
             <p className="text-page-subtitle mt-0.5">{data.overall.summary}</p>
           </div>
         </div>
@@ -390,7 +390,7 @@ export function RecommendationTab({
           })}
         </div>
 
-        <Button className="gap-2 xl:shrink-0" onClick={onProceed}>
+        <Button className="gap-2 whitespace-nowrap xl:shrink-0" onClick={onProceed}>
           {data.overall.cta}
           <ArrowRight className="size-4" />
         </Button>
