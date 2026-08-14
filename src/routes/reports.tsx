@@ -332,7 +332,7 @@ function ReportsPage() {
           </section>
         </div>
 
-        <aside className="grid min-w-0 gap-4 lg:grid-cols-3 2xl:grid-cols-1">
+        <aside className="grid min-w-0 items-start gap-4 lg:grid-cols-3 2xl:grid-cols-1">
           <ReportPreviewPanel record={selected} />
           <ReportInsights record={selected} />
           <ReportQuickActions totalReports={reportRecords.length - deleted.length} />
