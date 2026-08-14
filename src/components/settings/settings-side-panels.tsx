@@ -115,7 +115,7 @@ function DangerAction({
   onConfirm: () => void;
 }) {
   return (
-    <div className="flex min-w-0 flex-col gap-2 sm:flex-row sm:items-center sm:justify-between sm:gap-3">
+    <div className="flex min-w-0 flex-col items-start gap-2.5">
       <div className="flex min-w-0 items-start gap-2">
         <Icon className="text-destructive mt-0.5 size-4 shrink-0" strokeWidth={1.75} />
         <div className="min-w-0">
