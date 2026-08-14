@@ -236,7 +236,6 @@ export const availableSites: CompareSite[] = [
     latitude: 14.4674,
     longitude: 78.8241,
     coordinates: "14.4674° N, 78.8241° E",
-    soFar: undefined as never,
     suitability: 61.5,
     technology: "Wind",
     capacityMw: 8.5,
@@ -249,7 +248,7 @@ export const availableSites: CompareSite[] = [
       economic: 57,
       feasibility: 84,
     },
-  } as CompareSite,
+  },
 ];
 
 export const defaultSelectedIds = ["hyderabad", "vijayawada", "anantapur", "kurnool"];
