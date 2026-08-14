@@ -35,8 +35,8 @@ export function MapPreviewTab() {
       </div>
 
       <div className="grid min-w-0 gap-4 xl:grid-cols-[1.5fr_1fr]">
-        <div className="surface-card min-w-0 overflow-hidden p-2">
-          <div className="h-[340px] w-full overflow-hidden rounded-xl border border-border">
+        <div className="surface-card flex min-w-0 flex-col overflow-hidden p-2">
+          <div className="h-[340px] min-h-[340px] w-full flex-1 overflow-hidden rounded-xl border border-border">
             <ClientOnly fallback={<Skeleton className="size-full" />}>
               <Suspense fallback={<Skeleton className="size-full" />}>
                 <PreviewMap
