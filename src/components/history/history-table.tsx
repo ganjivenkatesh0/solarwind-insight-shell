@@ -40,7 +40,7 @@ export function AnalysisHistoryTable({
 
   return (
     <div className="min-w-0 overflow-x-auto">
-      <table className="w-full min-w-[680px] border-collapse text-left">
+      <table className="w-full min-w-[680px] border-separate border-spacing-0 text-left">
         <thead>
           <tr className="bg-muted/60">
             <th className="w-8 px-2.5 py-2.5">
@@ -68,7 +68,7 @@ export function AnalysisHistoryTable({
                 key={record.id}
                 onClick={() => onSelect(record.id)}
                 className={cn(
-                  "cursor-pointer border-t border-border transition-colors hover:bg-muted/40",
+                  "cursor-pointer transition-colors hover:bg-muted/40 [&>td]:border-t [&>td]:border-border",
                   isSelected && "bg-primary-soft/50",
                 )}
               >
