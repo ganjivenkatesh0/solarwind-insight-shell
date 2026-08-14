@@ -335,7 +335,7 @@ export function AiInsightsTab({
         >
           <div className="space-y-3">
             <div className="-mx-1 overflow-x-auto px-1">
-              <table className="w-full min-w-[320px] border-collapse text-left">
+              <table className="w-full border-collapse text-left text-[11px]">
                 <thead>
                   <tr className="border-border border-b">
                     <th className="text-helper pb-2 font-medium">Model</th>
