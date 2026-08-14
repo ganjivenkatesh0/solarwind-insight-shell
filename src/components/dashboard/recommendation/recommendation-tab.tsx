@@ -370,7 +370,7 @@ export function RecommendationTab({
             <Gauge className="size-5" />
           </span>
           <div className="min-w-0">
-            <h3 className="text-section-title whitespace-nowrap">{data.overall.title}</h3>
+            <h3 className="text-section-title">{data.overall.title}</h3>
             <p className="text-page-subtitle mt-0.5">{data.overall.summary}</p>
           </div>
         </div>
