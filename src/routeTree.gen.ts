@@ -21,6 +21,7 @@ import { Route as SettingsRouteImport } from './routes/settings'
 import { Route as NewAnalysisPreferencesRouteImport } from './routes/new-analysis_.preferences'
 import { Route as NewAnalysisProjectParametersRouteImport } from './routes/new-analysis_.project-parameters'
 import { Route as NewAnalysisReviewRouteImport } from './routes/new-analysis_.review'
+import { Route as ReportsReportIdRouteImport } from './routes/reports_.$reportId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -83,6 +84,11 @@ const NewAnalysisReviewRoute = NewAnalysisReviewRouteImport.update({
   path: '/new-analysis/review',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ReportsReportIdRoute = ReportsReportIdRouteImport.update({
+  id: '/reports_/$reportId',
+  path: '/reports/$reportId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -97,6 +103,7 @@ export interface FileRoutesByFullPath {
   '/new-analysis/preferences': typeof NewAnalysisPreferencesRoute
   '/new-analysis/project-parameters': typeof NewAnalysisProjectParametersRoute
   '/new-analysis/review': typeof NewAnalysisReviewRoute
+  '/reports/$reportId': typeof ReportsReportIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -111,6 +118,7 @@ export interface FileRoutesByTo {
   '/new-analysis/preferences': typeof NewAnalysisPreferencesRoute
   '/new-analysis/project-parameters': typeof NewAnalysisProjectParametersRoute
   '/new-analysis/review': typeof NewAnalysisReviewRoute
+  '/reports/$reportId': typeof ReportsReportIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -126,6 +134,7 @@ export interface FileRoutesById {
   '/new-analysis_/preferences': typeof NewAnalysisPreferencesRoute
   '/new-analysis_/project-parameters': typeof NewAnalysisProjectParametersRoute
   '/new-analysis_/review': typeof NewAnalysisReviewRoute
+  '/reports_/$reportId': typeof ReportsReportIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -142,6 +151,7 @@ export interface FileRouteTypes {
     | '/new-analysis/preferences'
     | '/new-analysis/project-parameters'
     | '/new-analysis/review'
+    | '/reports/$reportId'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -156,6 +166,7 @@ export interface FileRouteTypes {
     | '/new-analysis/preferences'
     | '/new-analysis/project-parameters'
     | '/new-analysis/review'
+    | '/reports/$reportId'
   id:
     | '__root__'
     | '/'
@@ -170,6 +181,7 @@ export interface FileRouteTypes {
     | '/new-analysis_/preferences'
     | '/new-analysis_/project-parameters'
     | '/new-analysis_/review'
+    | '/reports_/$reportId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -185,6 +197,7 @@ export interface RootRouteChildren {
   NewAnalysisPreferencesRoute: typeof NewAnalysisPreferencesRoute
   NewAnalysisProjectParametersRoute: typeof NewAnalysisProjectParametersRoute
   NewAnalysisReviewRoute: typeof NewAnalysisReviewRoute
+  ReportsReportIdRoute: typeof ReportsReportIdRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -273,6 +286,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof NewAnalysisReviewRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/reports_/$reportId': {
+      id: '/reports_/$reportId'
+      path: '/reports/$reportId'
+      fullPath: '/reports/$reportId'
+      preLoaderRoute: typeof ReportsReportIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -289,6 +309,7 @@ const rootRouteChildren: RootRouteChildren = {
   NewAnalysisPreferencesRoute: NewAnalysisPreferencesRoute,
   NewAnalysisProjectParametersRoute: NewAnalysisProjectParametersRoute,
   NewAnalysisReviewRoute: NewAnalysisReviewRoute,
+  ReportsReportIdRoute: ReportsReportIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
