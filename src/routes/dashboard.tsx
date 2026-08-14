@@ -16,6 +16,7 @@ import {
   TechnologyCard,
 } from "@/components/dashboard/highlight-cards";
 import { ResourceAssessment } from "@/components/dashboard/resource-assessment";
+import { ResourcesTab } from "@/components/dashboard/resources/resources-tab";
 import { SiteLocationCard } from "@/components/dashboard/site-location-card";
 import { SummaryCards } from "@/components/dashboard/summary-cards";
 import { EmptyState } from "@/components/ui/states";
@@ -90,6 +91,12 @@ function DashboardPage() {
 
               <DeploymentRecommendation data={data.recommendation} />
             </div>
+          ) : tab === "resources" ? (
+            <ResourcesTab
+              onViewAllSources={notReady("Data source")}
+              onViewTerrain={notReady("Terrain")}
+              onViewInfrastructure={notReady("Infrastructure")}
+            />
           ) : (
             <EmptyState
               title="Section coming next"
