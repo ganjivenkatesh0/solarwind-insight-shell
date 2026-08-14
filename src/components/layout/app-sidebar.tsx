@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link, useRouter } from "@tanstack/react-router";
 
 import { navItems } from "@/lib/nav-items";
 import { cn } from "@/lib/utils";
@@ -6,6 +6,9 @@ import { BrandMark } from "./brand-mark";
 import { SidebarAboutCard } from "./sidebar-about-card";
 
 export function AppSidebar({ onNavigate }: { onNavigate?: () => void }) {
+  const router = useRouter();
+  const isReports = router.state.location.pathname === "/reports";
+
   return (
     <div className="flex h-full flex-col bg-sidebar">
       <Link
@@ -42,8 +45,17 @@ export function AppSidebar({ onNavigate }: { onNavigate?: () => void }) {
       </nav>
 
       <div className="p-4">
-        <SidebarAboutCard />
+        {isReports ? (
+          <SidebarAboutCard
+            title="About Reports"
+            description="Generate comprehensive reports with insights, visualizations and recommendations for your renewable energy projects."
+          />
+        ) : (
+          <SidebarAboutCard />
+        )}
       </div>
+
+
     </div>
   );
 }

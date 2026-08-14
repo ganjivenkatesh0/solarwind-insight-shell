@@ -144,7 +144,7 @@ function ReportsPage() {
         }
       />
 
-      <div className="mb-5 max-w-xl">
+      <div className="mb-5">
         <label htmlFor="reports-top-search" className="sr-only">
           Search reports, locations or analysis ID
         </label>
@@ -163,7 +163,8 @@ function ReportsPage() {
         </div>
       </div>
 
-      <div className="grid min-w-0 gap-4 2xl:grid-cols-[minmax(0,1fr)_380px]">
+
+      <div className="grid min-w-0 items-start gap-4 xl:grid-cols-[minmax(0,1fr)_340px]">
         <div className="min-w-0 space-y-4">
           <div className="grid min-w-0 gap-3 sm:grid-cols-2 xl:grid-cols-4">
             {reportsSummary.map((card) => (
@@ -332,12 +333,13 @@ function ReportsPage() {
           </section>
         </div>
 
-        <aside className="grid min-w-0 items-start gap-4 lg:grid-cols-3 2xl:grid-cols-1">
+        <aside className="min-w-0 space-y-4">
           <ReportPreviewPanel record={selected} />
           <ReportInsights record={selected} />
           <ReportQuickActions totalReports={reportRecords.length - deleted.length} />
         </aside>
       </div>
+
     </PageContainer>
   );
 }
