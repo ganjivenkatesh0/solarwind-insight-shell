@@ -151,3 +151,126 @@ export function saveDraft(draft: AnalysisDraft) {
     /* storage unavailable — draft is kept in memory only */
   }
 }
+
+/* ------------------------------------------------------------------ */
+/* Step 2 — Project Parameters                                         */
+/* ------------------------------------------------------------------ */
+
+export type ParametersDraft = {
+  projectType: string;
+  installationType: string;
+  gridConnection: string;
+  gridDistance: string;
+  projectLifetime: string;
+  capacityFactor: string;
+  costPerMw: string;
+  omCost: string;
+  discountRate: string;
+  targetCapacity: string;
+  energyDemand: string;
+};
+
+export const defaultParametersDraft: ParametersDraft = {
+  projectType: "solar",
+  installationType: "ground-mounted",
+  gridConnection: "available",
+  gridDistance: "3.2",
+  projectLifetime: "25",
+  capacityFactor: "18.5",
+  costPerMw: "687,500",
+  omCost: "1.5",
+  discountRate: "8.0",
+  targetCapacity: "",
+  energyDemand: "",
+};
+
+export const projectTypeOptions = [
+  { value: "solar", label: "Solar Project" },
+  { value: "wind", label: "Wind Project" },
+  { value: "hybrid", label: "Hybrid Project" },
+] as const;
+
+export const installationTypeOptions = [
+  { value: "ground-mounted", label: "Ground Mounted" },
+  { value: "rooftop", label: "Rooftop" },
+  { value: "other", label: "Other" },
+] as const;
+
+export const gridConnectionOptions = [
+  { value: "available", label: "Available" },
+  { value: "limited", label: "Limited" },
+  { value: "not-available", label: "Not Available" },
+] as const;
+
+export type ParameterInfoIcon =
+  | "solar"
+  | "installation"
+  | "grid"
+  | "lifetime"
+  | "cost"
+  | "discount";
+
+export const parameterInfoItems: {
+  icon: ParameterInfoIcon;
+  title: string;
+  description: string;
+}[] = [
+  {
+    icon: "solar",
+    title: "Project Type",
+    description: "Choose between solar, wind, or hybrid projects.",
+  },
+  {
+    icon: "installation",
+    title: "Installation Type",
+    description: "Ground mount, rooftop, or other installation configurations.",
+  },
+  {
+    icon: "grid",
+    title: "Grid Connection",
+    description: "Grid availability and distance affects feasibility and costs.",
+  },
+  {
+    icon: "lifetime",
+    title: "Project Lifetime",
+    description: "Longer projects have different financial implications.",
+  },
+  {
+    icon: "cost",
+    title: "Cost per MW",
+    description: "Includes equipment, installation and initial infrastructure costs.",
+  },
+  {
+    icon: "discount",
+    title: "Discount Rate",
+    description: "Used to calculate present value of future cash flows.",
+  },
+];
+
+export const parameterTips = [
+  "Accurate parameters lead to more reliable results",
+  "You can review and edit all parameters in the next step",
+  "System will suggest optimal capacity if left blank",
+];
+
+const PARAMS_STORAGE_KEY = "swdi:new-analysis-parameters";
+
+export function loadParametersDraft(): ParametersDraft {
+  if (typeof window === "undefined") return defaultParametersDraft;
+  try {
+    const raw = window.localStorage.getItem(PARAMS_STORAGE_KEY);
+    if (!raw) return defaultParametersDraft;
+    return { ...defaultParametersDraft, ...(JSON.parse(raw) as Partial<ParametersDraft>) };
+  } catch {
+    return defaultParametersDraft;
+  }
+}
+
+export function saveParametersDraft(draft: ParametersDraft) {
+  if (typeof window === "undefined") return;
+  try {
+    window.localStorage.setItem(PARAMS_STORAGE_KEY, JSON.stringify(draft));
+  } catch {
+    /* storage unavailable — draft is kept in memory only */
+  }
+}
