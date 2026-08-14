@@ -362,9 +362,7 @@ function PreferencesPage() {
               <ArrowLeft className="size-4" />
               Back: Project Parameters
             </Button>
-            <Button
-              onClick={() => toast.info("Step 4 — Review & Submit is coming in the next release.")}
-            >
+            <Button onClick={() => navigate({ to: "/new-analysis/review" })}>
               Next: Review &amp; Submit
               <ArrowRight className="size-4" />
             </Button>
