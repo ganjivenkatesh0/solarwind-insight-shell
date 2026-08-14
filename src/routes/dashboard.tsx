@@ -7,6 +7,7 @@ import { AIInsights } from "@/components/dashboard/ai-insights";
 import { DashboardTabs, type DashboardTabId } from "@/components/dashboard/dashboard-tabs";
 import { DeploymentRecommendation } from "@/components/dashboard/deployment-recommendation";
 import { EnergyAnalysis } from "@/components/dashboard/energy-analysis";
+import { EnergyFinancialTab } from "@/components/dashboard/energy-financial/energy-financial-tab";
 import { FeasibilityBreakdown } from "@/components/dashboard/feasibility-breakdown";
 import { FeasibilityTab } from "@/components/dashboard/feasibility/feasibility-tab";
 import { FinancialAnalysis } from "@/components/dashboard/financial-analysis";
@@ -105,6 +106,13 @@ function DashboardPage() {
                 toast.success("Report export will be available once the analysis API is connected.")
               }
               onViewRecommendations={notReady("Recommendation")}
+            />
+          ) : tab === "energy" ? (
+            <EnergyFinancialTab
+              onExport={notReady("Financial report export")}
+              onDownload={() =>
+                toast.success("Report export will be available once the analysis API is connected.")
+              }
             />
           ) : (
             <EmptyState
