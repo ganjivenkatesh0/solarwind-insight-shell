@@ -40,7 +40,7 @@ export function AnalysisHistoryTable({
 
   return (
     <div className="min-w-0 overflow-x-auto">
-      <table className="w-full min-w-[900px] border-collapse text-left">
+      <table className="w-full min-w-[780px] border-collapse text-left">
         <thead>
           <tr className="bg-muted/60">
             <th className="w-10 px-4 py-3">
