@@ -377,10 +377,11 @@ function ProjectParametersPage() {
               <ArrowLeft className="size-4" />
               Back: Site Details
             </Button>
-            <Button onClick={() => toast.info("Step 3 — Preferences is coming in the next release.")}>
+            <Button onClick={() => navigate({ to: "/new-analysis/preferences" })}>
               Next: Preferences
               <ArrowRight className="size-4" />
             </Button>
+
           </div>
         </div>
 
