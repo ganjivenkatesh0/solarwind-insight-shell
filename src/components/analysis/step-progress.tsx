@@ -1,3 +1,5 @@
+import { Check } from "lucide-react";
+
 import { analysisSteps } from "@/lib/analysis-form";
 import { cn } from "@/lib/utils";
 
@@ -10,6 +12,7 @@ export function StepProgress({ current }: { current: number }) {
     >
       {analysisSteps.map((step, index) => {
         const active = step.id === current;
+        const done = step.id < current;
         return (
           <div key={step.id} className="flex min-w-0 shrink-0 items-center gap-1 sm:flex-1">
             <div
@@ -24,15 +27,21 @@ export function StepProgress({ current }: { current: number }) {
                   "grid size-7 shrink-0 place-items-center rounded-full text-xs font-bold",
                   active
                     ? "bg-primary text-primary-foreground"
-                    : "bg-muted text-muted-foreground",
+                    : done
+                      ? "text-success bg-success-soft"
+                      : "bg-muted text-muted-foreground",
                 )}
               >
-                {step.id}
+                {done ? <Check className="size-4" aria-label="completed" /> : step.id}
               </span>
               <span
                 className={cn(
                   "text-label whitespace-nowrap",
-                  active ? "font-semibold text-foreground" : "text-muted-foreground",
+                  active
+                    ? "font-semibold text-foreground"
+                    : done
+                      ? "text-foreground"
+                      : "text-muted-foreground",
                 )}
               >
                 {step.label}
