@@ -388,7 +388,7 @@ function ReviewPage() {
                   title="Preferences"
                   onEdit={() => navigate({ to: "/new-analysis/preferences" })}
                 />
-                <div className="mt-4 grid min-w-0 gap-5 md:grid-cols-2">
+                <div className="mt-4 grid min-w-0 gap-5 md:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)]">
                   <div className="space-y-3">
                     <Row Icon={Sun} iconClass="text-solar" label="Analysis Focus">
                       {focusLabel}
@@ -421,7 +421,7 @@ function ReviewPage() {
                             <span className="text-helper min-w-0 flex-1 truncate">
                               {item.label}
                             </span>
-                            <span className="bg-muted h-1.5 w-24 shrink-0 overflow-hidden rounded-full">
+                            <span className="bg-muted h-1.5 w-20 shrink-0 overflow-hidden rounded-full">
                               <span
                                 className={`block h-full rounded-full ${style.bar}`}
                                 style={{ width: `${Math.min(100, Math.max(0, value))}%` }}
