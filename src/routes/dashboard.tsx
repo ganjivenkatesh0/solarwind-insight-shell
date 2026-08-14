@@ -91,6 +91,12 @@ function DashboardPage() {
 
               <DeploymentRecommendation data={data.recommendation} />
             </div>
+          ) : tab === "resources" ? (
+            <ResourcesTab
+              onViewAllSources={notReady("Data source")}
+              onViewTerrain={notReady("Terrain")}
+              onViewInfrastructure={notReady("Infrastructure")}
+            />
           ) : (
             <EmptyState
               title="Section coming next"
