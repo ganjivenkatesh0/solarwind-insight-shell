@@ -273,13 +273,11 @@ function NewAnalysisPage() {
               <DeleteIcon className="size-4" />
               Clear All
             </Button>
-            <Button
-              onClick={() =>
-                toast.info("Step 2 — Project Parameters is coming in the next release.")
-              }
-            >
-              Next: Project Parameters
-              <ArrowRight className="size-4" />
+            <Button asChild>
+              <Link to="/new-analysis/project-parameters">
+                Next: Project Parameters
+                <ArrowRight className="size-4" />
+              </Link>
             </Button>
           </div>
         </div>
