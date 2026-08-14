@@ -44,11 +44,11 @@ export function ReportsTable({
 }) {
   return (
     <div className="min-w-0 overflow-x-auto">
-      <table className="w-full min-w-[880px] border-separate border-spacing-0 text-left">
+      <table className="w-full min-w-[820px] border-separate border-spacing-0 text-left">
         <thead>
           <tr className="bg-muted/60">
             {columns.map((label) => (
-              <th key={label} className="text-label px-3 py-2.5 font-semibold whitespace-nowrap">
+              <th key={label} className="text-label px-2.5 py-2.5 font-semibold whitespace-nowrap">
                 {label}
               </th>
             ))}
@@ -71,7 +71,7 @@ export function ReportsTable({
                   isSelected && "bg-primary-soft/50",
                 )}
               >
-                <td className="px-3 py-3">
+                <td className="px-2.5 py-3">
                   <div className="flex min-w-0 items-start gap-2.5">
                     <span
                       className={cn(
@@ -90,22 +90,22 @@ export function ReportsTable({
                     </div>
                   </div>
                 </td>
-                <td className="px-3 py-3">
+                <td className="px-2.5 py-3">
                   <p className="text-label font-semibold whitespace-nowrap">{record.location}</p>
                   <p className="text-helper whitespace-nowrap">{record.coordinatesLabel}</p>
                 </td>
-                <td className="px-3 py-3">
+                <td className="px-2.5 py-3">
                   <p className="text-label whitespace-nowrap">{record.dateLabel}</p>
                   <p className="text-helper whitespace-nowrap">{record.timeLabel}</p>
                 </td>
-                <td className="px-3 py-3">
+                <td className="px-2.5 py-3">
                   <AnalysisTypeCell record={record} />
                 </td>
-                <td className="px-3 py-3">
+                <td className="px-2.5 py-3">
                   <ReportStatusCell record={record} />
                 </td>
                 <td
-                  className={cn("sticky right-0 px-3 py-3", isSelected ? "bg-primary-soft" : "bg-card")}
+                  className={cn("sticky right-0 px-2.5 py-3", isSelected ? "bg-primary-soft" : "bg-card")}
                   onClick={(e) => e.stopPropagation()}
                 >
                   <div className="flex items-center justify-end gap-1">

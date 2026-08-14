@@ -163,7 +163,7 @@ function ReportsPage() {
         </div>
       </div>
 
-      <div className="grid min-w-0 gap-4 xl:grid-cols-[minmax(0,1fr)_380px]">
+      <div className="grid min-w-0 gap-4 xl:grid-cols-[minmax(0,1fr)_340px] 2xl:grid-cols-[minmax(0,1fr)_380px]">
         <div className="min-w-0 space-y-4">
           <div className="grid min-w-0 gap-3 sm:grid-cols-2 xl:grid-cols-4">
             {reportsSummary.map((card) => (
