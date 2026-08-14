@@ -18,6 +18,7 @@ import {
   SuitabilityCard,
   TechnologyCard,
 } from "@/components/dashboard/highlight-cards";
+import { MapPreviewTab } from "@/components/dashboard/map/map-preview-tab";
 import { RecommendationTab } from "@/components/dashboard/recommendation/recommendation-tab";
 import { ResourceAssessment } from "@/components/dashboard/resource-assessment";
 import { ResourcesTab } from "@/components/dashboard/resources/resources-tab";
