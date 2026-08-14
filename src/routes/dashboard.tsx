@@ -8,6 +8,7 @@ import { DashboardTabs, type DashboardTabId } from "@/components/dashboard/dashb
 import { DeploymentRecommendation } from "@/components/dashboard/deployment-recommendation";
 import { EnergyAnalysis } from "@/components/dashboard/energy-analysis";
 import { FeasibilityBreakdown } from "@/components/dashboard/feasibility-breakdown";
+import { FeasibilityTab } from "@/components/dashboard/feasibility/feasibility-tab";
 import { FinancialAnalysis } from "@/components/dashboard/financial-analysis";
 import {
   EnergyGenerationCard,
@@ -96,6 +97,14 @@ function DashboardPage() {
               onViewAllSources={notReady("Data source")}
               onViewTerrain={notReady("Terrain")}
               onViewInfrastructure={notReady("Infrastructure")}
+            />
+          ) : tab === "feasibility" ? (
+            <FeasibilityTab
+              onExport={notReady("Feasibility report export")}
+              onDownload={() =>
+                toast.success("Report export will be available once the analysis API is connected.")
+              }
+              onViewRecommendations={notReady("Recommendation")}
             />
           ) : (
             <EmptyState
