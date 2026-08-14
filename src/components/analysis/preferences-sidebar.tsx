@@ -2,12 +2,15 @@ import { Info, Sun, Wind, ShieldAlert, ShieldCheck, ClipboardList } from "lucide
 
 import { preferenceInfoItems } from "@/lib/analysis-form";
 
-const infoStyles: Record<string, { Icon: typeof Sun; wrap: string; icon: string }> = {
+type PreferenceInfoIcon = (typeof preferenceInfoItems)[number]["icon"];
+
+const infoStyles: Record<PreferenceInfoIcon, { Icon: typeof Sun; wrap: string; icon: string }> = {
   focus: { Icon: Sun, wrap: "bg-solar-soft", icon: "text-solar" },
   priorities: { Icon: Wind, wrap: "bg-wind-soft", icon: "text-wind" },
   risk: { Icon: ShieldAlert, wrap: "bg-solar-soft", icon: "text-solar" },
   feasibility: { Icon: ShieldCheck, wrap: "bg-success-soft", icon: "text-success" },
 };
+
 
 /** Right-hand column for Step 3: preference explanations + note card. */
 export function PreferencesSidebar() {
