@@ -4,6 +4,7 @@ import { toast } from "sonner";
 
 import { PageContainer, PageHeader } from "@/components/layout/page-container";
 import { AIInsights } from "@/components/dashboard/ai-insights";
+import { AiInsightsTab } from "@/components/dashboard/ai-insights/ai-insights-tab";
 import { DashboardTabs, type DashboardTabId } from "@/components/dashboard/dashboard-tabs";
 import { DeploymentRecommendation } from "@/components/dashboard/deployment-recommendation";
 import { EnergyAnalysis } from "@/components/dashboard/energy-analysis";
@@ -113,6 +114,15 @@ function DashboardPage() {
               onDownload={() =>
                 toast.success("Report export will be available once the analysis API is connected.")
               }
+            />
+          ) : tab === "ai" ? (
+            <AiInsightsTab
+              onExport={notReady("AI insights report export")}
+              onDownload={() =>
+                toast.success("Report export will be available once the analysis API is connected.")
+              }
+              onViewSimilar={notReady("Similar project")}
+              onViewReport={notReady("Detailed AI report")}
             />
           ) : (
             <EmptyState
