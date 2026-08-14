@@ -59,7 +59,7 @@ function HeadRow({ sites, firstLabel, secondLabel }: { sites: CompareSite[]; fir
   return (
     <thead>
       <tr className="bg-muted/50 border-border border-b">
-        <th className="text-helper w-[260px] px-4 py-3 text-left font-semibold">{firstLabel}</th>
+        <th className="text-helper w-[230px] px-3 py-3 text-left font-semibold">{firstLabel}</th>
         {secondLabel ? (
           <th className="text-helper w-[80px] px-3 py-3 text-left font-semibold">{secondLabel}</th>
         ) : null}
@@ -80,7 +80,7 @@ export function OverviewComparisonTable({ sites }: { sites: CompareSite[] }) {
 
   return (
     <div className="min-w-0 overflow-x-auto">
-      <table className="w-full min-w-[820px] border-collapse text-left">
+      <table className="w-full min-w-[760px] border-collapse text-left">
         <HeadRow sites={sites} firstLabel="Evaluation Criteria" secondLabel="Weight" />
         <tbody>
           <tr className="border-border border-b">

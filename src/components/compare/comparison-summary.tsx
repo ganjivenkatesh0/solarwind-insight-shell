@@ -85,15 +85,15 @@ export function ComparisonSummaryColumn({
 
       <CardPanel title="Recommended Technology">
         <div className="flex min-w-0 items-center gap-3">
-          <div className="h-[150px] w-[150px] shrink-0">
+          <div className="h-[130px] w-[130px] shrink-0">
             <ResponsiveContainer width="100%" height="100%">
               <PieChart>
                 <Pie
                   data={techData}
                   dataKey="count"
                   nameKey="technology"
-                  innerRadius={38}
-                  outerRadius={66}
+                  innerRadius={32}
+                  outerRadius={56}
                   paddingAngle={2}
                   stroke="none"
                 >
