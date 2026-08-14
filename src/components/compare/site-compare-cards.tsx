@@ -20,7 +20,7 @@ function MetricBox({
       className="border-border min-w-0 rounded-lg border px-1.5 py-1.5"
       style={emphasise ? { backgroundColor: `color-mix(in oklch, ${accent} 8%, transparent)` } : undefined}
     >
-      <p className="text-muted-foreground text-[9px] leading-[1.15] tracking-tight font-medium break-words whitespace-normal">
+      <p className="text-muted-foreground text-[8.5px] leading-[1.15] tracking-tight uppercase font-medium break-words whitespace-normal">
         {label}
       </p>
       <p className="mt-0.5 text-[12px] leading-4 font-bold whitespace-nowrap" style={{ color: emphasise ? accent : undefined }}>
@@ -99,7 +99,7 @@ export function SiteCompareCards({
               </p>
               <p className="text-helper mt-1 truncate">{site.coordinates}</p>
 
-              <div className="mt-2.5 grid grid-cols-3 gap-1">
+              <div className="mt-2.5 grid grid-cols-[1.05fr_1fr_1fr] gap-1">
                 <MetricBox
                   label="Suitability"
                   value={site.suitability.toFixed(1)}
