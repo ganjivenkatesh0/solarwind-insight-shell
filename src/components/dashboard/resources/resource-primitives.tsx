@@ -115,7 +115,7 @@ export function MonthlyLineChart({
       <p className="text-helper mb-1">{title}</p>
       <div className="h-[140px] w-full min-w-0">
         <ResponsiveContainer width="100%" height="100%">
-          <LineChart data={data} margin={{ top: 8, right: 8, bottom: 0, left: -14 }}>
+          <LineChart data={data} margin={{ top: 8, right: 8, bottom: 0, left: 0 }}>
             <XAxis
               dataKey="month"
               tick={{ fontSize: 9, fill: "var(--muted-foreground)" }}
@@ -128,18 +128,21 @@ export function MonthlyLineChart({
               tick={{ fontSize: 9, fill: "var(--muted-foreground)" }}
               axisLine={false}
               tickLine={false}
-              width={28}
+              width={24}
               domain={domain}
               ticks={ticks}
+              allowDecimals={false}
             />
             <Line
               type="linear"
               dataKey="value"
               stroke={`var(${color})`}
               strokeWidth={1.75}
-              dot={{ r: 3, fill: `var(${color})`, strokeWidth: 0 }}
+              isAnimationActive={false}
+              dot={{ r: 3, fill: `var(${color})`, stroke: "none" }}
               activeDot={{ r: 4 }}
             />
+
           </LineChart>
         </ResponsiveContainer>
       </div>
