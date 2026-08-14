@@ -365,13 +365,13 @@ export function RecommendationTab({
 
       {/* Overall recommendation bar */}
       <section className="surface-card border-primary/25 bg-primary-soft/50 flex flex-col gap-4 p-4 xl:flex-row xl:items-center xl:justify-between">
-        <div className="flex min-w-0 flex-1 items-start gap-3">
+        <div className="flex min-w-0 flex-1 items-start gap-3 xl:basis-[360px]">
           <span className="bg-primary/15 text-primary grid size-10 shrink-0 place-items-center rounded-full">
             <Gauge className="size-5" />
           </span>
           <div className="min-w-0">
             <h3 className="text-section-title whitespace-nowrap">{data.overall.title}</h3>
-            <p className="text-page-subtitle mt-0.5 xl:whitespace-nowrap">{data.overall.summary}</p>
+            <p className="text-page-subtitle mt-0.5">{data.overall.summary}</p>
           </div>
         </div>
 
