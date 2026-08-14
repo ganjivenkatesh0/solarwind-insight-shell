@@ -169,10 +169,10 @@ export const feasibilityData: FeasibilityData = {
     overall: "18.6",
     overallLabel: "Low Risk",
     slices: [
-      { label: "Low Risk (0-25)", value: 18.6, color: "var(--success)" },
-      { label: "Medium Risk (25-50)", value: 31.2, color: "var(--warning)" },
-      { label: "High Risk (50-75)", value: 12.1, color: "var(--solar)" },
-      { label: "Very High Risk (75-100)", value: 2.3, color: "var(--error)" },
+      { label: "Low Risk (0-25)", value: 52.5, color: "var(--success)" },
+      { label: "Medium Risk (25-50)", value: 31.0, color: "var(--warning)" },
+      { label: "High Risk (50-75)", value: 12.5, color: "var(--solar)" },
+      { label: "Very High Risk (75-100)", value: 4.0, color: "var(--error)" },
     ],
     factors: [
       { label: "Weather Variability", level: "Low" },
