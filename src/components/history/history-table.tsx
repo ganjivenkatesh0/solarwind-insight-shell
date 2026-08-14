@@ -50,7 +50,7 @@ export function AnalysisHistoryTable({
                 aria-label="Select all analyses"
               />
             </th>
-            {["Analysis ID", "Location", "Date & Time", "Suitability", "Recommended", "Status"].map(
+            {["Analysis ID", "Location", "Date & Time", "Suitability Score", "Recommended", "Status"].map(
               (label) => (
                 <th key={label} className="text-label px-2.5 py-3 font-semibold whitespace-nowrap">
                   {label}
