@@ -16,6 +16,7 @@ import {
   TechnologyCard,
 } from "@/components/dashboard/highlight-cards";
 import { ResourceAssessment } from "@/components/dashboard/resource-assessment";
+import { ResourcesTab } from "@/components/dashboard/resources/resources-tab";
 import { SiteLocationCard } from "@/components/dashboard/site-location-card";
 import { SummaryCards } from "@/components/dashboard/summary-cards";
 import { EmptyState } from "@/components/ui/states";
