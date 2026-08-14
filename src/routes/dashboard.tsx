@@ -53,8 +53,8 @@ function DashboardPage() {
   return (
     <PageContainer>
       <PageHeader
-        title="Site Analysis Results"
-        description="Comprehensive renewable energy potential and feasibility analysis"
+        title="Dashboard"
+        description="Overview of your latest renewable energy site analyses."
       />
 
       <div className="space-y-4">
