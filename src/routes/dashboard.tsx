@@ -97,6 +97,14 @@ function DashboardPage() {
               onViewTerrain={notReady("Terrain")}
               onViewInfrastructure={notReady("Infrastructure")}
             />
+          ) : tab === "feasibility" ? (
+            <FeasibilityTab
+              onExport={notReady("Feasibility report export")}
+              onDownload={() =>
+                toast.success("Report export will be available once the analysis API is connected.")
+              }
+              onViewRecommendations={notReady("Recommendation")}
+            />
           ) : (
             <EmptyState
               title="Section coming next"
