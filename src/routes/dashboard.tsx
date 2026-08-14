@@ -73,7 +73,7 @@ function DashboardPage() {
         <DashboardTabs value={tab} onChange={setTab}>
           {tab === "overview" ? (
             <div className="space-y-4">
-              <div className="grid gap-4 xl:grid-cols-3">
+              <div className="grid gap-4 xl:grid-cols-[1.45fr_1fr_1.15fr]">
                 <ResourceAssessment data={data.resources} onViewDetails={() => setTab("resources")} />
                 <FeasibilityBreakdown
                   data={data.feasibility}
@@ -82,7 +82,7 @@ function DashboardPage() {
                 <SiteLocationCard site={data.site} />
               </div>
 
-              <div className="grid gap-4 xl:grid-cols-3">
+              <div className="grid gap-4 xl:grid-cols-[0.85fr_1.1fr_1.15fr]">
                 <EnergyAnalysis data={data.energy} />
                 <FinancialAnalysis data={data.financial} />
                 <AIInsights data={data.ai} onViewDetails={notReady("AI model")} />

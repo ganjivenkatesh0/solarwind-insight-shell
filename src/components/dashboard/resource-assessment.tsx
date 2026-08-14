@@ -35,13 +35,13 @@ function ResourceChart({ data, color }: { data: MonthlyPoint[]; color: string })
           </defs>
           <XAxis
             dataKey="month"
-            tick={{ fontSize: 9, fill: "var(--muted-foreground)" }}
+            tick={{ fontSize: 8, fill: "var(--muted-foreground)" }}
             axisLine={false}
             tickLine={false}
             interval={0}
           />
           <YAxis
-            tick={{ fontSize: 9, fill: "var(--muted-foreground)" }}
+            tick={{ fontSize: 8, fill: "var(--muted-foreground)" }}
             axisLine={false}
             tickLine={false}
             width={26}

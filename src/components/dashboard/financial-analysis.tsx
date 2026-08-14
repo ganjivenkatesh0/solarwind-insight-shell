@@ -25,8 +25,8 @@ export function FinancialAnalysis({ data }: { data: DashboardData["financial"] }
             key={m.label}
             className={`rounded-xl border px-3 py-2.5 text-center ${toneClass[m.tone]}`}
           >
-            <p className="truncate text-base font-bold tracking-tight">{m.value}</p>
-            <p className="text-helper truncate">{m.label}</p>
+            <p className="text-[13px] font-bold tracking-tight">{m.value}</p>
+            <p className="text-helper">{m.label}</p>
           </div>
         ))}
       </div>
